@@ -340,24 +340,7 @@ def create_animation(filename):
             for f in svgframefiles:
                 os.remove(f)
 
-        #for k in static_css:
-            #svgframefile = filename_noext + ("_frame%04d.svg"%k)
-            #pngframefile = filename_noext + ("_frame%04d.png"%k)
-            #print 'convert %s -> %s' % (svgframefile, pngframefile)
-            #cmdline = 'svgexport %s %s %s:%s' % (
-                        #shescape(svgframefile),
-                        #shescape(pngframefile),
-                        #GIF_SIZE, GIF_SIZE)
-            #print cmdline
-            #if os.system(cmdline) != 0:
-                #exit('Error running external command')
-
-            #if DELETE_TEMPORARY_FILES:
-                #os.remove(svgframefile)
-                #print 'deleted %s' % svgframefile
-            
-            #pngframefiles.append(pngframefile)
-        
+        # generate GIF
         giffile = filename_noext + '_anim.gif'
         escpngframefiles = ' '.join(shescape(f) for f in pngframefiles[0:-1])
         cmdline = ("convert -alpha set -dispose previous "+ # -deconstruct
