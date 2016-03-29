@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-import re, math, glob, os, sys
+import re, math, glob, os, sys, json
 from lxml import etree
 from lxml.builder import E
 from svg.path import parse_path
-from os.path import basename
+from os.path import basename, abspath
 from copy import deepcopy
 from textwrap import dedent as d
 import bezier_cubic
@@ -306,46 +306,73 @@ def create_animation(filename):
         print 'written %s' % svgfile
 
     if GENERATE_GIF:
-        frames = []
+        svgframefiles = []
+        pngframefiles = []
+        svgexport_data = []
         for k in static_css:
+            svgframefile = filename_noext + ("_frame%04d.svg"%k)
+            pngframefile = filename_noext + ("_frame%04d.png"%k)
+            svgframefiles.append(svgframefile)
+            pngframefiles.append(pngframefile)
+            svgexport_data.append({"input": [abspath(svgframefile)],
+                                   "output": [[abspath(pngframefile), 
+                                                 "%d:%d"% (GIF_SIZE, GIF_SIZE)]]})
+
             style = E.style(static_css[k])
             doc.getroot().insert(0, style)
-            svgframefile = filename_noext + ("_frame%04d.svg"%k)
             doc.write(svgframefile)
             doc.getroot().remove(style)
             print 'written %s' % svgframefile
-            
-            pngframefile = filename_noext + ("_frame%04d.png"%k)
-            print 'convert %s -> %s' % (svgframefile, pngframefile)
-            cmdline = 'svgexport %s %s %s:%s' % (
-                        shescape(svgframefile),
-                        shescape(pngframefile),
-                        GIF_SIZE, GIF_SIZE)
-            print cmdline
-            if os.system(cmdline) != 0:
-                exit('Error running external command')
 
-            if DELETE_TEMPORARY_FILES:
-                os.remove(svgframefile)
-                print 'deleted %s' % svgframefile
+        # create json file
+        svgexport_datafile = filename_noext+"_export_data.json"
+        with open(svgexport_datafile,'w') as f:
+            f.write(json.dumps(svgexport_data))
+
+        # run svgexport
+        cmdline = 'svgexport %s' % shescape(svgexport_datafile)
+        print cmdline
+        if os.system(cmdline) != 0:
+            exit('Error running external command')
+
+        if DELETE_TEMPORARY_FILES:
+            os.remove(svgexport_datafile)
+            for f in svgframefiles:
+                os.remove(f)
+
+        #for k in static_css:
+            #svgframefile = filename_noext + ("_frame%04d.svg"%k)
+            #pngframefile = filename_noext + ("_frame%04d.png"%k)
+            #print 'convert %s -> %s' % (svgframefile, pngframefile)
+            #cmdline = 'svgexport %s %s %s:%s' % (
+                        #shescape(svgframefile),
+                        #shescape(pngframefile),
+                        #GIF_SIZE, GIF_SIZE)
+            #print cmdline
+            #if os.system(cmdline) != 0:
+                #exit('Error running external command')
+
+            #if DELETE_TEMPORARY_FILES:
+                #os.remove(svgframefile)
+                #print 'deleted %s' % svgframefile
             
-            frames.append(pngframefile)
+            #pngframefiles.append(pngframefile)
         
         giffile = filename_noext + '_anim.gif'
-        escpngframefiles = ' '.join(shescape(f) for f in frames[0:-1])
+        escpngframefiles = ' '.join(shescape(f) for f in pngframefiles[0:-1])
         cmdline = ("convert -alpha set -dispose previous "+ # -deconstruct
                    "-delay %d %s -delay %d %s -layers optimize %s") % (
                     int(GIF_FRAME_DURATION*100),
                     escpngframefiles,
                     int(last_frame_delay*100),
-                    shescape(frames[-1]),
+                    shescape(pngframefiles[-1]),
                     shescape(giffile))
         print cmdline
         if os.system(cmdline) != 0:
             exit('Error running external command')
         
         if DELETE_TEMPORARY_FILES:
-            for f in frames:
+            for f in pngframefiles:
                 os.remove(f)
             print 'cleaned up.'
 
