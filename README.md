@@ -6,13 +6,13 @@ This is a small utility for transforming KanjiVG images into animates SVG of GIF
 
 SVG samples:
 
-![084b8 GIF](https://raw.github.com/maurimo/kanimaji/gh-pages/samples/084b8_anim.svg)
-![08972 GIF](https://raw.github.com/maurimo/kanimaji/gh-pages/samples/08972_anim.svg)
+![084b8 SVG](https://raw.githubusercontent.com/maurimo/kanimaji/gh-pages/samples/084b8_anim.svg)
+![08972 SVG](https://raw.githubusercontent.com/maurimo/kanimaji/gh-pages/samples/08972_anim.svg)
 
 GIF samples:
 
-![084b8 GIF](https://raw.github.com/maurimo/kanimaji/gh-pages/samples/084b8_anim.gif)
-![08972 GIF](https://raw.github.com/maurimo/kanimaji/gh-pages/samples/08972_anim.gif)
+![084b8 GIF](https://raw.githubusercontent.com/maurimo/kanimaji/gh-pages/samples/084b8_anim.gif)
+![08972 GIF](https://raw.githubusercontent.com/maurimo/kanimaji/gh-pages/samples/08972_anim.gif)
 
 ## Dependencies ##
 
