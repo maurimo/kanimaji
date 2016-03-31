@@ -220,8 +220,8 @@ def create_animation(filename):
                 #%s {
                     stroke-dasharray: %.03f %.03f;
                     stroke-dashoffset: 0;
-                    animation: strike_%s %.03fs 0s %s infinite,
-                        showhide_%s %.03fs 0s step-start infinite;
+                    animation: strike_%s %.03fs %s infinite,
+                        showhide_%s %.03fs step-start infinite;
                 }""" % (anim_pathidcss, pathlen, pathlen, 
                         pathname, animation_time,
                         TIMING_FUNCTION,
@@ -241,8 +241,8 @@ def create_animation(filename):
                     #%s, #%s {
                         stroke-dasharray: 0.001 %.03f;
                         stroke-dashoffset: 0.0015;
-                        animation: strike_%s %.03fs 0s %s infinite,
-                            showhide_brush_%s %.03fs 0s step-start infinite;
+                        animation: strike_%s %.03fs %s infinite,
+                            showhide_brush_%s %.03fs step-start infinite;
                     }""" % (brush_pathidcss, brush_brd_pathidcss, pathlen, 
                         pathname, animation_time,
                         TIMING_FUNCTION,
