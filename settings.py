@@ -20,11 +20,12 @@ BRUSH_BORDER_WIDTH = 7
 WAIT_AFTER = 1.5
 
 DELETE_TEMPORARY_FILES = True
-GENERATE_SVG           = True
-GENERATE_GIF           = True
 GIF_SIZE               = 200
 GIF_FRAME_DURATION     = 0.045
 
+GENERATE_SVG           = True
+GENERATE_JS_SVG        = True
+GENERATE_GIF           = False
 
 # sqrt, ie a stroke 4 times the length is drawn
 # at twice the speed, in twice the time.
