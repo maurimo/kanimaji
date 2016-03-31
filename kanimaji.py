@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import re, math, glob, os, sys, json
 from lxml import etree
@@ -64,8 +65,10 @@ etree.register_namespace("xlink","http://www.w3.org/1999/xlink")
 
 def create_animation(filename):
     filename_noext = re.sub(r'\.[^\.]+$','',filename)
-    baseid = basename(filename_noext)
-    
+    filename_noext_ascii = re.sub(r'\\([\\u])','\\1',
+                            json.dumps(filename_noext))[1:-1]
+    baseid = basename(filename_noext_ascii)
+
     # load xml
     doc = etree.parse(filename)
 
@@ -311,8 +314,8 @@ def create_animation(filename):
         pngframefiles = []
         svgexport_data = []
         for k in static_css:
-            svgframefile = filename_noext + ("_frame%04d.svg"%k)
-            pngframefile = filename_noext + ("_frame%04d.png"%k)
+            svgframefile = filename_noext_ascii + ("_frame%04d.svg"%k)
+            pngframefile = filename_noext_ascii + ("_frame%04d.png"%k)
             svgframefiles.append(svgframefile)
             pngframefiles.append(pngframefile)
             svgexport_data.append({"input": [abspath(svgframefile)],
@@ -326,9 +329,10 @@ def create_animation(filename):
             print 'written %s' % svgframefile
 
         # create json file
-        svgexport_datafile = filename_noext+"_export_data.json"
+        svgexport_datafile = filename_noext_ascii+"_export_data.json"
         with open(svgexport_datafile,'w') as f:
             f.write(json.dumps(svgexport_data))
+        print 'created instructions %s' % svgexport_datafile
 
         # run svgexport
         cmdline = 'svgexport %s' % shescape(svgexport_datafile)
