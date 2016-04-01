@@ -445,7 +445,7 @@ def create_animation(filename):
         print cmdline
         if os.system(cmdline) != 0:
             exit('Error running external command')
-        
+
         if DELETE_TEMPORARY_FILES:
             for f in pngframefiles:
                 os.remove(f)
