@@ -19,17 +19,17 @@ BRUSH_BORDER_WIDTH = 7
 
 WAIT_AFTER = 1.5
 
-DELETE_TEMPORARY_FILES = True
-GIF_SIZE               = 200
+DELETE_TEMPORARY_FILES = False
+GIF_SIZE               = 150
 GIF_FRAME_DURATION     = 0.045
 
 GENERATE_SVG           = True
 GENERATE_JS_SVG        = True
-GENERATE_GIF           = False
+GENERATE_GIF           = True
 
 # sqrt, ie a stroke 4 times the length is drawn
 # at twice the speed, in twice the time.
-def stroke_length_to_time(length):
+def stroke_length_to_duration(length):
     return math.sqrt(length)/8
 
 # global time rescale, let's make animation a bit

@@ -61,7 +61,7 @@ my_timing_func = timing_funcs[TIMING_FUNCTION]
 # we will need this to deal with svg
 namespaces = {'n': "http://www.w3.org/2000/svg"}
 etree.register_namespace("xlink","http://www.w3.org/1999/xlink")
-
+parser = etree.XMLParser(remove_blank_text=True)
 
 def create_animation(filename):
     filename_noext = re.sub(r'\.[^\.]+$','',filename)
@@ -70,7 +70,7 @@ def create_animation(filename):
     baseid = basename(filename_noext_ascii)
 
     # load xml
-    doc = etree.parse(filename)
+    doc = etree.parse(filename, parser)
 
     # for xlink namespace introduction
     doc.getroot().set('{http://www.w3.org/1999/xlink}used','')
@@ -111,9 +111,9 @@ def create_animation(filename):
             continue
         for p in g.xpath(".//n:path", namespaces=namespaces):
             pathlen = compute_path_len(p.get('d'))
-            time = stroke_length_to_time(pathlen)
+            duration = stroke_length_to_duration(pathlen)
             totlen += pathlen
-            tottime += time
+            tottime += duration
 
     animation_time = time_rescale(tottime) #math.pow(3 * tottime, 2.0/3)
     tottime += WAIT_AFTER * tottime / animation_time
@@ -127,7 +127,8 @@ def create_animation(filename):
         animated_css = css_header
     if GENERATE_JS_SVG:
         js_animated_css = css_header
-        js_anim_els = []
+        js_anim_els = []  # collect the ids of animating elements
+        js_anim_time = [] # the time set (as default) for each animation
     if GENERATE_GIF:
         static_css = {}
         last_frame_index = int(actual_animation_time/GIF_FRAME_DURATION)+1
@@ -172,11 +173,16 @@ def create_animation(filename):
             pathid = p.get('id')
             pathidcss = re.sub(r':', '\\\\3a ', pathid)
 
-            bg_pathid = pathid+'-brd'
-            bg_pathidcss = pathidcss+'-brd'
+            if GENERATE_JS_SVG:
+                js_anim_els.append({})
+
+            bg_pathid = pathid+'-bg'
+            bg_pathidcss = pathidcss+'-bg'
             ref = E.use(id = bg_pathid)
             ref.set('{http://www.w3.org/1999/xlink}href','#'+pathid)
             bg_g.append(ref)
+            if GENERATE_JS_SVG:
+                js_anim_els[-1]["bg"] = ref
 
             anim_pathid = pathid+'-anim'
             anim_pathidcss = pathidcss+'-anim'
@@ -184,7 +190,7 @@ def create_animation(filename):
             ref.set('{http://www.w3.org/1999/xlink}href','#'+pathid)
             anim_g.append(ref)
             if GENERATE_JS_SVG:
-                js_anim_els.append({"anim": ref})
+                js_anim_els[-1]["anim"] = ref
 
             if SHOW_BRUSH:
                 brush_pathid = pathid+'-brush'
@@ -205,30 +211,30 @@ def create_animation(filename):
 
             pathname = re.sub(r'^kvg:','',pathid)
             pathlen = compute_path_len(p.get('d'))
-            time = stroke_length_to_time(pathlen)
-            reltime = time * tottime / animation_time # unscaled time
+            duration = stroke_length_to_duration(pathlen)
+            relduration = duration * tottime / animation_time # unscaled time
             if GENERATE_JS_SVG:
-                js_anim_els[-1]["time"] = reltime
+                js_anim_time.append(relduration)
             newelapsedlen = elapsedlen + pathlen
-            newelapsedtime = elapsedtime + time
+            newelapsedtime = elapsedtime + duration
             anim_start = elapsedtime/tottime*100
             anim_end = newelapsedtime/tottime*100
-            
+
             if GENERATE_SVG:
                 # animation stroke progression
                 animated_css += d("""
                     @keyframes strike_%s {
-                    0%% { stroke-dashoffset: %.03f; }
-                    %.03f%% { stroke-dashoffset: %.03f; }
-                    %.03f%% { stroke-dashoffset: 0; }
-                    100%% { stroke-dashoffset: 0; }
+                        0%% { stroke-dashoffset: %.03f; }
+                        %.03f%% { stroke-dashoffset: %.03f; }
+                        %.03f%% { stroke-dashoffset: 0; }
+                        100%% { stroke-dashoffset: 0; }
                     }""" % (pathname, pathlen, anim_start, pathlen, anim_end))
 
                 # animation visibility
                 animated_css += d("""
                     @keyframes showhide_%s {
-                    %.03f%% { visibility: hidden; }
-                    %.03f%% { stroke: %s; }
+                        %.03f%% { visibility: hidden; }
+                        %.03f%% { stroke: %s; }
                     }""" % (pathname, anim_start, anim_end, STOKE_FILLING_COLOR))
 
                 # animation progression
@@ -247,74 +253,88 @@ def create_animation(filename):
                     # brush element visibility
                     animated_css += d("""
                         @keyframes showhide_brush_%s {
-                        %.03f%% { visibility: hidden; }
-                        %.03f%% { visibility: visible; }
-                        100%% { visibility: hidden; }
+                            %.03f%% { visibility: hidden; }
+                            %.03f%% { visibility: visible; }
+                            100%% { visibility: hidden; }
                         }""" % (pathname, anim_start, anim_end))
 
                     # brush element progression
                     animated_css += d("""
                         #%s, #%s {
-                            stroke-dasharray: 0.001 %.03f;
-                            stroke-dashoffset: 0.0015;
+                            stroke-dasharray: 0 %.03f;
                             animation: strike_%s %.03fs %s infinite,
                                 showhide_brush_%s %.03fs step-start infinite;
-                        }""" % (brush_pathidcss, brush_brd_pathidcss, pathlen, 
-                            pathname, animation_time,
-                            TIMING_FUNCTION,
+                        }""" % (brush_pathidcss, brush_brd_pathidcss,
+                            pathlen, 
+                            pathname, animation_time, TIMING_FUNCTION,
                             pathname, animation_time))
 
             if GENERATE_JS_SVG:
-                #just hide everything by default
-                rule = "#%s" % anim_pathidcss
-                if SHOW_BRUSH:
-                    rule += ", #%s, #%s" % (brush_pathidcss, brush_brd_pathidcss)
-                js_animated_css += d("""
-                    %s {
-                        visibility: hidden;
-                    }""" % rule)
+                js_animated_css += d("""\n
+                    /* stroke %s */""" % pathid)
                 
+                # brush and background hidden by default
+                if SHOW_BRUSH:
+                    js_animated_css += d("""
+                        #%s, #%s, #%s {
+                            visibility: hidden;
+                        }""") % (brush_pathidcss, brush_brd_pathidcss, bg_pathidcss)
+
+                # hide stroke after current element
+                after_curr = '[class *= "current"]'
+                js_animated_css += d("""
+                    %s ~ #%s {
+                        visibility: hidden;
+                    }""") % (after_curr, anim_pathidcss)
+
+                # and show bg after current element, or if animated
+                js_animated_css += d("""
+                    %s ~ #%s, #%s.anim {
+                        visibility: visible;
+                    }""") % (after_curr, bg_pathidcss, bg_pathidcss)
+
                 # animation stroke progression
                 js_animated_css += d("""
                     @keyframes strike_%s {
-                    0%% { stroke-dashoffset: %.03f; }
-                    100%% { stroke-dashoffset: 0; }
+                        0%% { stroke-dashoffset: %.03f; }
+                        100%% { stroke-dashoffset: 1; }
                     }""" % (pathname, pathlen))
 
                 js_animated_css += d("""
                     #%s.anim {
                         stroke: %s;
                         stroke-dasharray: %.03f %.03f;
-                    }""" % (anim_pathidcss, STOKE_FILLING_COLOR,
+                    }""" % (anim_pathidcss,
+                            STOKE_FILLING_COLOR,
                             pathlen, pathlen))
                 if SHOW_BRUSH:
                     js_animated_css += d("""
                         #%s.anim, #%s.anim {
-                            stroke-dasharray: 0.001 %.03f;
-                        }""" % (brush_pathidcss, brush_brd_pathidcss, 
-                                pathlen))
+                            stroke-dasharray: 0 %.03f;
+                        }""") % (brush_pathidcss, brush_brd_pathidcss, 
+                                pathlen)
 
                 rule_anim = "#%s.anim" % anim_pathidcss
                 if SHOW_BRUSH:
-                    rule_anim += ", #%s.anim, #%s.anim" % (
+                    rule_anim += ",\n#%s.anim,\n#%s.anim" % (
                         brush_pathidcss, brush_brd_pathidcss)
 
-                #FIXME: not infinite, something else
                 js_animated_css += d("""
                     %s {
                         visibility: visible;
-                        animation: strike_%s %.03fs %s infinite
-                    }""" % (rule_anim, pathname, reltime, TIMING_FUNCTION))
-                
-                # done state, bruh is hidden again, if any
-                js_animated_css += d("""
-                    #%s.done {
-                        visibility: visible;
-                    }""" % anim_pathidcss)
+                        animation: strike_%s %.03fs %s;
+                        animation-fill-mode: forwards;
+                        animation-iteration-count: 1;
+                    }""") % (rule_anim, pathname, relduration, TIMING_FUNCTION)
 
             if GENERATE_GIF:
                 for k in static_css:
                     time = k * GIF_FRAME_DURATION
+                    reltime = time * tottime / animation_time # unscaled time
+
+                    static_css[k] += d("""
+                    /* stroke %s */
+                    """ % pathid)
 
                     # animation
                     if reltime < elapsedtime: #just hide everything
@@ -325,12 +345,14 @@ def create_animation(filename):
                             %s {
                                 visibility: hidden;
                             }""" % rule)
-                    elif reltime > newelapsedtime: #just hide the brush
+                    elif reltime > newelapsedtime: #just hide the brush, and bg
+                        rule = "#%s" % bg_pathidcss
                         if SHOW_BRUSH:
-                            static_css[k] += d("""
-                                #%s, #%s {
-                                    visibility: hidden;
-                                }""" % (brush_pathidcss, brush_brd_pathidcss))
+                            rule += ", #%s, #%s" % (brush_pathidcss, brush_brd_pathidcss)
+                        static_css[k] += d("""
+                            %s {
+                                visibility: hidden;
+                            }""" % (rule))
                     else:
                         intervalprop = ((reltime-elapsedtime) / 
                                     (newelapsedtime-elapsedtime))
@@ -389,7 +411,7 @@ def create_animation(filename):
 
             style = E.style(static_css[k], id="style-Kanimaji")
             doc.getroot().insert(0, style)
-            doc.write(svgframefile)
+            doc.write(svgframefile, pretty_print=True)
             doc.getroot().remove(style)
             print 'written %s' % svgframefile
 
@@ -430,15 +452,24 @@ def create_animation(filename):
             print 'cleaned up.'
         
     if GENERATE_JS_SVG:
+    
+        f0insert = [bg_g, anim_g]
+        if SHOW_BRUSH: f0insert += [brush_g, brush_brd_g]
+        for g in f0insert:            
+            el = E.a()
+            el.set("data-stroke","0")
+            g.insert(0, el)
+
         for i in range(0, len(js_anim_els)):
             els = js_anim_els[i]
             for k in els:
-                if k != "time":
-                    els[k].set("class","sk"+str(i))
+                els[k].set("data-stroke",str(i+1))
+            els["anim"].set("data-duration", str(js_anim_time[i]))
+
         style = E.style(js_animated_css, id="style-Kanimaji")
         doc.getroot().insert(0, style)
         svgfile = filename_noext + '_js_anim.svg'
-        doc.write(svgfile)
+        doc.write(svgfile, pretty_print=True)
         doc.getroot().remove(style)
         print 'written %s' % svgfile
 
