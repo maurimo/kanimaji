@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Kanimaji</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="jquery-2.2.2.min.js"></script>
+<script language="JavaScript" type="text/javascript">
+function svg_loaded(){
+    console.log("hello!")
+    n = 3;
+    svg = $(document.getElementById('mysvg').getSVGDocument())
+    dur = svg.find('[data-stroke="'+n+'"][data-duration]').data("duration")
+    console.log(dur)
+    svg.find('.anim, .current').removeClass('anim current')
+    svg.find('[data-stroke="'+1+'"]').addClass('anim current')
+    //svg.find('[data-stroke]').addClass('anim')
+}
+</script>
+<style>
+</style>
+</head>
+<body>
+<object>
+   <embed id="mysvg" src="samples/084b8_js_anim.svg" onload="javascript:svg_loaded()">
+</object>
+</body>
+</html>
