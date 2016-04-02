@@ -8,43 +8,178 @@
 <meta http-equiv="pragma" content="no-cache" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="jquery-2.2.2.min.js"></script>
+<script src="jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.min.css">
 <script language="JavaScript" type="text/javascript">
-function svg_loaded(){
-    console.log("hello!")
-    n = 3;
+
+// function run() {
+//     var svg = $(document.getElementById('mysvg').getSVGDocument())
+// }
+// 
+// function svg_loaded_old() {
+//     console.log("hello!")
+//     n = 3;
+//     svg = $(document.getElementById('mysvg').getSVGDocument())
+// 
+//     num_strokes = svg.find('[data-num-strokes]').data('num-strokes')
+//     console.log(num_strokes)
+//     
+//     /* cleanup */
+//     svg.find('.animate, .current, .brush, .backward')
+//         .removeClass('animate current brush backward')
+// 
+//     selector = '[data-stroke="'+n+'"]'
+// 
+//     duration = svg.find(selector+'[data-duration]').data("duration")
+//     svg.find(selector)
+//         .addClass('animate current')
+//         .css("animation-duration", (duration*3) + "s")
+// 
+//     // animate all and 
+//     svg.find('[data-stroke]')
+//         .addClass('animate backward')
+//         .css("animation-duration", '1s')
+//     for(var i=1;i<=3;i++)
+//     svg.find('[data-stroke="'+i+'"]')
+//         .addClass('brush')
+//         .removeClass('backward')
+//         .css("animation-duration", '1s')
+//         
+//     // reset duration, if necessary
+//     //svg.find('[data-stroke]').css("animation-duration", '')
+// }
+
+function svg_loaded() {
+    var svg, root, num_strokes;
     svg = $(document.getElementById('mysvg').getSVGDocument())
 
-    /* cleanup */
-    svg.find('.animate, .current, .brush, .backward')
-        .removeClass('animate current brush backward')
-
-    selector = '[data-stroke="'+n+'"]'
-
-    duration = svg.find(selector+'[data-duration]').data("duration")
-    svg.find(selector)
-        .addClass('animate current')
-        .css("animation-duration", (duration*3) + "s")
-
-    // animate all and 
-    svg.find('[data-stroke]')
-        .addClass('animate backward')
-        .css("animation-duration", '1s')
-    for(var i=1;i<=3;i++)
-    svg.find('[data-stroke="'+i+'"]')
-        .addClass('brush')
-        .removeClass('backward')
-        .css("animation-duration", '1s')
-        
-    // reset duration, if necessary
-    //svg.find('[data-stroke]').css("animation-duration", '')
+    // allow the svg to grow
+    root = svg.find('svg')[0]
+    root.removeAttribute('width')
+    root.removeAttribute('height')
+    
+    num_strokes = svg.find('[data-num-strokes]').data('num-strokes')
+    $("#stroke").spinner({max: num_strokes})
 }
+
+function animate() {
+    var svg, cls, stroke, els, selector, factor, duration, new_duration;
+    svg = $(document.getElementById('mysvg').getSVGDocument())
+
+    /* cleanup all classes and durations, if necessary */
+    svg.find('[data-stroke]')
+        .removeClass('animate current brush backward')
+        .css("animation-duration", '');
+
+    /* 
+        Build class list from settings:
+            "current"  - to mark last drawn/drawing stroke,
+                            subsequent strokes will be blank.
+            "animate"  - to animate the stroke.
+            "backward" - to make the animation backward.
+            "brush"    - to show the brush (the fatty drawing circle).
+    */
+    cls = 'current';
+    if($('#animate').is(":checked"))
+        cls += ' animate';
+    if($('#backward').is(":checked"))
+        cls += ' backward';
+    if($('#brush').is(":checked"))
+        cls += ' brush';
+
+    /* 
+        hack, trigger reflow to force animation restart, should
+        not be necessary unless animating again the same stroke 
+    */
+    svg.find('svg')[0].offsetWidth;
+
+    /* add classes to animating elaments */
+    selector = '[data-stroke="'+$("#stroke").spinner("value")+'"]';
+    els = svg.find(selector).addClass(cls);
+
+    /* set custom speed */
+    if($('#set_speed').is(":checked")) {
+        factor = -$('#speed').slider("value") * 2.0/100;
+        duration = svg.find(selector+'[data-duration]').data("duration");
+        new_duration = duration * Math.exp(factor);
+        els.css("animation-duration", new_duration+'s');
+    }
+}
+
+$(function() {
+    $("#backward, #brush, #animate, #set_speed, #draw").button()
+    $("#stroke").spinner({min: 0})
+    $("#speed").slider({min: -100, max: 100, value: 0,
+                    disabled: !$('#set_speed').is(":checked") })
+    $('#set_speed').change(function() {
+        $("#speed").slider({disabled: !$(this).is(":checked")})
+    })
+    $("#draw").click(animate)
+})
 </script>
 <style>
 </style>
 </head>
-<body>
+<body style="text-align: center">
+<div style="width: 300; height: 300; text-align: center; margin: 0 auto">
 <object>
-   <embed id="mysvg" src="samples/084b8_js_anim.svg" onload="javascript:svg_loaded()">
+   <embed id="mysvg" src="samples/084b8_js_anim.svg"
+            onload="javascript:svg_loaded()">
 </object>
+</div>
+<p>
+    <button id="draw" style="color: red">Draw!</button>
+    <input type="checkbox" id="backward">
+    <label for="backward">Backward</label>
+    <input type="checkbox" id="brush" checked="1">
+    <label for="brush">Show brush</label>
+    <input type="checkbox" id="animate" checked="1">
+    <label for="animate">Animate</label>
+</p>
+<p>
+    <label for="stroke" class="ui-widget ui-state-default"
+        style="border:none">Stroke:</label>
+    <input id="stroke" name="value" value="1" style="width: 3em"/>
+    <span id="speed" style="width: 160; display: inline-block; margin: 0em 0.5em"></span>
+    <input type="checkbox" id="set_speed"/>
+    <label for="set_speed">Set speed</label>
+</p>
+<div style="text-align: left; margin-left: 2em">
+<pre style='color:#000000;background:#ffffff;'>svg <span style='color:#808030; '>=</span> $<span style='color:#808030; '>(</span>document<span style='color:#808030; '>.</span>getElementById<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>mysvg</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>getSVGDocument<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+
+<span style='color:#696969; '>/* cleanup all classes and durations, if necessary */</span>
+svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>[data-stroke]</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span>
+    <span style='color:#808030; '>.</span>removeClass<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>animate current brush backward</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span>
+    <span style='color:#808030; '>.</span>css<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>animation-duration</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> <span style='color:#800000; '>'</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>/* </span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;Build class list from settings:</span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;"current"  - to mark last drawn/drawing stroke,</span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;subsequent strokes will be blank.</span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;"animate"  - to animate the stroke.</span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;"backward" - to make the animation backward.</span>
+<span style='color:#696969; '>&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;"brush"    - to show the brush (the fatty drawing circle).</span>
+<span style='color:#696969; '>*/</span>
+cls <span style='color:#808030; '>=</span> <span style='color:#800000; '>'</span><span style='color:#0000e6; '>current</span><span style='color:#800000; '>'</span><span style='color:#800080; '>;</span>
+<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>#animate</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>is<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>:checked</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    cls <span style='color:#808030; '>+=</span> <span style='color:#800000; '>'</span><span style='color:#0000e6; '> animate</span><span style='color:#800000; '>'</span><span style='color:#800080; '>;</span>
+<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>#backward</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>is<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>:checked</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    cls <span style='color:#808030; '>+=</span> <span style='color:#800000; '>'</span><span style='color:#0000e6; '> backward</span><span style='color:#800000; '>'</span><span style='color:#800080; '>;</span>
+<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>#brush</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>is<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>:checked</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+    cls <span style='color:#808030; '>+=</span> <span style='color:#800000; '>'</span><span style='color:#0000e6; '> brush</span><span style='color:#800000; '>'</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>/* add classes to animating elaments */</span>
+selector <span style='color:#808030; '>=</span> <span style='color:#800000; '>'</span><span style='color:#0000e6; '>[data-stroke="</span><span style='color:#800000; '>'</span><span style='color:#808030; '>+</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>#stroke</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>spinner<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>value</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>+</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>"]</span><span style='color:#800000; '>'</span><span style='color:#800080; '>;</span>
+els <span style='color:#808030; '>=</span> svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</span>selector<span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>addClass<span style='color:#808030; '>(</span>cls<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+<span style='color:#696969; '>/* set custom speed */</span>
+<span style='color:#800000; font-weight:bold; '>if</span><span style='color:#808030; '>(</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>#set_speed</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>is<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>:checked</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+    factor <span style='color:#808030; '>=</span> <span style='color:#808030; '>-</span>$<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>#speed</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>slider<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>value</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>*</span> <span style='color:#008000; '>2.0</span><span style='color:#808030; '>/</span><span style='color:#008c00; '>100</span><span style='color:#800080; '>;</span>
+    duration <span style='color:#808030; '>=</span> svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</span>selector<span style='color:#808030; '>+</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>[data-duration]</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>data<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>duration</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    new_duration <span style='color:#808030; '>=</span> duration <span style='color:#808030; '>*</span> <span style='color:#797997; '>Math</span><span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>exp</span><span style='color:#808030; '>(</span>factor<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    els<span style='color:#808030; '>.</span>css<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>animation-duration</span><span style='color:#800000; '>"</span><span style='color:#808030; '>,</span> new_duration<span style='color:#808030; '>+</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>s</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+</pre>
+</div>
 </body>
 </html>
