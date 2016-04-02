@@ -37,22 +37,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s1-bg, #kvg\3a 084b8-s1-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s1 {
-    0% { stroke-dashoffset: 65.004; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s1 {
+    0% { stroke-dashoffset: 65.003; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s1-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 65.004 65.004;
+    stroke-dasharray: 65.003 65.003;
+    visibility: visible;
+    animation: strike-084b8-s1 1.000s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s1 {
+    0% { stroke-dashoffset: 65.003; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s1-brush.animate.brush, #kvg\3a 084b8-s1-brush-brd.animate.brush {
-    stroke-dasharray: 0 65.004;
-}
-#kvg\3a 084b8-s1-anim.animate,
-#kvg\3a 084b8-s1-brush.animate.brush,
-#kvg\3a 084b8-s1-brush-brd.animate.brush {
+    stroke-dasharray: 0 65.003;
     visibility: visible;
-    animation: strike_084b8-s1 1.000s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s1 1.000s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s2 */
@@ -65,22 +67,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s2-bg, #kvg\3a 084b8-s2-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s2 {
-    0% { stroke-dashoffset: 19.433; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s2 {
+    0% { stroke-dashoffset: 19.432; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s2-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 19.433 19.433;
+    stroke-dasharray: 19.432 19.432;
+    visibility: visible;
+    animation: strike-084b8-s2 0.547s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s2 {
+    0% { stroke-dashoffset: 19.432; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s2-brush.animate.brush, #kvg\3a 084b8-s2-brush-brd.animate.brush {
-    stroke-dasharray: 0 19.433;
-}
-#kvg\3a 084b8-s2-anim.animate,
-#kvg\3a 084b8-s2-brush.animate.brush,
-#kvg\3a 084b8-s2-brush-brd.animate.brush {
+    stroke-dasharray: 0 19.432;
     visibility: visible;
-    animation: strike_084b8-s2 0.547s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s2 0.547s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s3 */
@@ -93,22 +97,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s3-bg, #kvg\3a 084b8-s3-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s3 {
-    0% { stroke-dashoffset: 19.437; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s3 {
+    0% { stroke-dashoffset: 19.436; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s3-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 19.437 19.437;
+    stroke-dasharray: 19.436 19.436;
+    visibility: visible;
+    animation: strike-084b8-s3 0.547s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s3 {
+    0% { stroke-dashoffset: 19.436; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s3-brush.animate.brush, #kvg\3a 084b8-s3-brush-brd.animate.brush {
-    stroke-dasharray: 0 19.437;
-}
-#kvg\3a 084b8-s3-anim.animate,
-#kvg\3a 084b8-s3-brush.animate.brush,
-#kvg\3a 084b8-s3-brush-brd.animate.brush {
+    stroke-dasharray: 0 19.436;
     visibility: visible;
-    animation: strike_084b8-s3 0.547s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s3 0.547s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s4 */
@@ -121,22 +127,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s4-bg, #kvg\3a 084b8-s4-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s4 {
-    0% { stroke-dashoffset: 48.586; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s4 {
+    0% { stroke-dashoffset: 48.585; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s4-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 48.586 48.586;
+    stroke-dasharray: 48.585 48.585;
+    visibility: visible;
+    animation: strike-084b8-s4 0.865s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s4 {
+    0% { stroke-dashoffset: 48.585; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s4-brush.animate.brush, #kvg\3a 084b8-s4-brush-brd.animate.brush {
-    stroke-dasharray: 0 48.586;
-}
-#kvg\3a 084b8-s4-anim.animate,
-#kvg\3a 084b8-s4-brush.animate.brush,
-#kvg\3a 084b8-s4-brush-brd.animate.brush {
+    stroke-dasharray: 0 48.585;
     visibility: visible;
-    animation: strike_084b8-s4 0.865s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s4 0.865s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s5 */
@@ -149,22 +157,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s5-bg, #kvg\3a 084b8-s5-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s5 {
-    0% { stroke-dashoffset: 32.465; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s5 {
+    0% { stroke-dashoffset: 32.464; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s5-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 32.465 32.465;
+    stroke-dasharray: 32.464 32.464;
+    visibility: visible;
+    animation: strike-084b8-s5 0.707s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s5 {
+    0% { stroke-dashoffset: 32.464; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s5-brush.animate.brush, #kvg\3a 084b8-s5-brush-brd.animate.brush {
-    stroke-dasharray: 0 32.465;
-}
-#kvg\3a 084b8-s5-anim.animate,
-#kvg\3a 084b8-s5-brush.animate.brush,
-#kvg\3a 084b8-s5-brush-brd.animate.brush {
+    stroke-dasharray: 0 32.464;
     visibility: visible;
-    animation: strike_084b8-s5 0.707s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s5 0.707s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s6 */
@@ -177,22 +187,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s6-bg, #kvg\3a 084b8-s6-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s6 {
-    0% { stroke-dashoffset: 58.953; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s6 {
+    0% { stroke-dashoffset: 58.952; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s6-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 58.953 58.953;
+    stroke-dasharray: 58.952 58.952;
+    visibility: visible;
+    animation: strike-084b8-s6 0.952s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s6 {
+    0% { stroke-dashoffset: 58.952; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s6-brush.animate.brush, #kvg\3a 084b8-s6-brush-brd.animate.brush {
-    stroke-dasharray: 0 58.953;
-}
-#kvg\3a 084b8-s6-anim.animate,
-#kvg\3a 084b8-s6-brush.animate.brush,
-#kvg\3a 084b8-s6-brush-brd.animate.brush {
+    stroke-dasharray: 0 58.952;
     visibility: visible;
-    animation: strike_084b8-s6 0.952s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s6 0.952s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s7 */
@@ -205,22 +217,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s7-bg, #kvg\3a 084b8-s7-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s7 {
-    0% { stroke-dashoffset: 20.318; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s7 {
+    0% { stroke-dashoffset: 20.317; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s7-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 20.318 20.318;
+    stroke-dasharray: 20.317 20.317;
+    visibility: visible;
+    animation: strike-084b8-s7 0.559s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s7 {
+    0% { stroke-dashoffset: 20.317; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s7-brush.animate.brush, #kvg\3a 084b8-s7-brush-brd.animate.brush {
-    stroke-dasharray: 0 20.318;
-}
-#kvg\3a 084b8-s7-anim.animate,
-#kvg\3a 084b8-s7-brush.animate.brush,
-#kvg\3a 084b8-s7-brush-brd.animate.brush {
+    stroke-dasharray: 0 20.317;
     visibility: visible;
-    animation: strike_084b8-s7 0.559s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s7 0.559s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s8 */
@@ -233,22 +247,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s8-bg, #kvg\3a 084b8-s8-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s8 {
-    0% { stroke-dashoffset: 35.144; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s8 {
+    0% { stroke-dashoffset: 35.143; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s8-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 35.144 35.144;
+    stroke-dasharray: 35.143 35.143;
+    visibility: visible;
+    animation: strike-084b8-s8 0.735s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s8 {
+    0% { stroke-dashoffset: 35.143; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s8-brush.animate.brush, #kvg\3a 084b8-s8-brush-brd.animate.brush {
-    stroke-dasharray: 0 35.144;
-}
-#kvg\3a 084b8-s8-anim.animate,
-#kvg\3a 084b8-s8-brush.animate.brush,
-#kvg\3a 084b8-s8-brush-brd.animate.brush {
+    stroke-dasharray: 0 35.143;
     visibility: visible;
-    animation: strike_084b8-s8 0.735s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s8 0.735s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s9 */
@@ -261,22 +277,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s9-bg, #kvg\3a 084b8-s9-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s9 {
-    0% { stroke-dashoffset: 44.226; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s9 {
+    0% { stroke-dashoffset: 44.225; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s9-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 44.226 44.226;
+    stroke-dasharray: 44.225 44.225;
+    visibility: visible;
+    animation: strike-084b8-s9 0.825s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s9 {
+    0% { stroke-dashoffset: 44.225; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s9-brush.animate.brush, #kvg\3a 084b8-s9-brush-brd.animate.brush {
-    stroke-dasharray: 0 44.226;
-}
-#kvg\3a 084b8-s9-anim.animate,
-#kvg\3a 084b8-s9-brush.animate.brush,
-#kvg\3a 084b8-s9-brush-brd.animate.brush {
+    stroke-dasharray: 0 44.225;
     visibility: visible;
-    animation: strike_084b8-s9 0.825s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s9 0.825s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s10 */
@@ -289,22 +307,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s10-bg, #kvg\3a 084b8-s10-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s10 {
-    0% { stroke-dashoffset: 16.256; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s10 {
+    0% { stroke-dashoffset: 16.255; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s10-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 16.256 16.256;
+    stroke-dasharray: 16.255 16.255;
+    visibility: visible;
+    animation: strike-084b8-s10 0.500s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s10 {
+    0% { stroke-dashoffset: 16.255; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s10-brush.animate.brush, #kvg\3a 084b8-s10-brush-brd.animate.brush {
-    stroke-dasharray: 0 16.256;
-}
-#kvg\3a 084b8-s10-anim.animate,
-#kvg\3a 084b8-s10-brush.animate.brush,
-#kvg\3a 084b8-s10-brush-brd.animate.brush {
+    stroke-dasharray: 0 16.255;
     visibility: visible;
-    animation: strike_084b8-s10 0.500s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s10 0.500s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s11 */
@@ -317,22 +337,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s11-bg, #kvg\3a 084b8-s11-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s11 {
-    0% { stroke-dashoffset: 13.854; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s11 {
+    0% { stroke-dashoffset: 13.853; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s11-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 13.854 13.854;
+    stroke-dasharray: 13.853 13.853;
+    visibility: visible;
+    animation: strike-084b8-s11 0.462s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s11 {
+    0% { stroke-dashoffset: 13.853; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s11-brush.animate.brush, #kvg\3a 084b8-s11-brush-brd.animate.brush {
-    stroke-dasharray: 0 13.854;
-}
-#kvg\3a 084b8-s11-anim.animate,
-#kvg\3a 084b8-s11-brush.animate.brush,
-#kvg\3a 084b8-s11-brush-brd.animate.brush {
+    stroke-dasharray: 0 13.853;
     visibility: visible;
-    animation: strike_084b8-s11 0.462s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s11 0.462s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s12 */
@@ -345,22 +367,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s12-bg, #kvg\3a 084b8-s12-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s12 {
-    0% { stroke-dashoffset: 15.662; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s12 {
+    0% { stroke-dashoffset: 15.661; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s12-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 15.662 15.662;
+    stroke-dasharray: 15.661 15.661;
+    visibility: visible;
+    animation: strike-084b8-s12 0.491s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s12 {
+    0% { stroke-dashoffset: 15.661; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s12-brush.animate.brush, #kvg\3a 084b8-s12-brush-brd.animate.brush {
-    stroke-dasharray: 0 15.662;
-}
-#kvg\3a 084b8-s12-anim.animate,
-#kvg\3a 084b8-s12-brush.animate.brush,
-#kvg\3a 084b8-s12-brush-brd.animate.brush {
+    stroke-dasharray: 0 15.661;
     visibility: visible;
-    animation: strike_084b8-s12 0.491s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s12 0.491s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s13 */
@@ -373,22 +397,24 @@
 [class *= "current"] ~ #kvg\3a 084b8-s13-bg, #kvg\3a 084b8-s13-bg.animate {
     visibility: visible;
 }
-@keyframes strike_084b8-s13 {
-    0% { stroke-dashoffset: 18.703; }
-    100% { stroke-dashoffset: 0.05; }
+@keyframes strike-084b8-s13 {
+    0% { stroke-dashoffset: 18.702; }
+    100% { stroke-dashoffset: 0; }
 }
 #kvg\3a 084b8-s13-anim.animate {
     stroke: #f00;
-    stroke-dasharray: 18.703 18.703;
+    stroke-dasharray: 18.702 18.702;
+    visibility: visible;
+    animation: strike-084b8-s13 0.536s ease-in-out forwards 1;
+}
+@keyframes strike-brush-084b8-s13 {
+    0% { stroke-dashoffset: 18.702; }
+    100% { stroke-dashoffset: 0.4; }
 }
 #kvg\3a 084b8-s13-brush.animate.brush, #kvg\3a 084b8-s13-brush-brd.animate.brush {
-    stroke-dasharray: 0 18.703;
-}
-#kvg\3a 084b8-s13-anim.animate,
-#kvg\3a 084b8-s13-brush.animate.brush,
-#kvg\3a 084b8-s13-brush-brd.animate.brush {
+    stroke-dasharray: 0 18.702;
     visibility: visible;
-    animation: strike_084b8-s13 0.536s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s13 0.536s ease-in-out forwards 1;
 }
 #kvg\3a StrokeNumbers_084b8 {
     display: none;
@@ -477,19 +503,19 @@
   </g>
   <g style="fill:none;stroke:#000;stroke-width:3.100000;stroke-linecap:round;stroke-linejoin:round;" id="kvg:084b8-anim-Kanimaji">
     <a data-stroke="0"/>
-    <use id="kvg:084b8-s1-anim" xlink:href="#kvg:084b8-s1" data-stroke="1" data-duration="1.00004204876"/>
-    <use id="kvg:084b8-s2-anim" xlink:href="#kvg:084b8-s2" data-stroke="2" data-duration="0.546788760296"/>
-    <use id="kvg:084b8-s3-anim" xlink:href="#kvg:084b8-s3" data-stroke="3" data-duration="0.546838527243"/>
-    <use id="kvg:084b8-s4-anim" xlink:href="#kvg:084b8-s4" data-stroke="4" data-duration="0.864579908917"/>
-    <use id="kvg:084b8-s5-anim" xlink:href="#kvg:084b8-s5" data-stroke="5" data-duration="0.70673612094"/>
-    <use id="kvg:084b8-s6-anim" xlink:href="#kvg:084b8-s6" data-stroke="6" data-duration="0.952367201094"/>
-    <use id="kvg:084b8-s7-anim" xlink:href="#kvg:084b8-s7" data-stroke="7" data-duration="0.559100011513"/>
-    <use id="kvg:084b8-s8-anim" xlink:href="#kvg:084b8-s8" data-stroke="8" data-duration="0.735313393812"/>
-    <use id="kvg:084b8-s9-anim" xlink:href="#kvg:084b8-s9" data-stroke="9" data-duration="0.824880257125"/>
-    <use id="kvg:084b8-s10-anim" xlink:href="#kvg:084b8-s10" data-stroke="10" data-duration="0.500101938473"/>
-    <use id="kvg:084b8-s11-anim" xlink:href="#kvg:084b8-s11" data-stroke="11" data-duration="0.461682223282"/>
-    <use id="kvg:084b8-s12-anim" xlink:href="#kvg:084b8-s12" data-stroke="12" data-duration="0.490880754697"/>
-    <use id="kvg:084b8-s13-anim" xlink:href="#kvg:084b8-s13" data-stroke="13" data-duration="0.536419320849"/>
+    <use id="kvg:084b8-s1-anim" xlink:href="#kvg:084b8-s1" data-stroke="1" data-duration="1.00002843983"/>
+    <use id="kvg:084b8-s2-anim" xlink:href="#kvg:084b8-s2" data-stroke="2" data-duration="0.54677150139"/>
+    <use id="kvg:084b8-s3-anim" xlink:href="#kvg:084b8-s3" data-stroke="3" data-duration="0.546821266177"/>
+    <use id="kvg:084b8-s4-anim" xlink:href="#kvg:084b8-s4" data-stroke="4" data-duration="0.864566079865"/>
+    <use id="kvg:084b8-s5-anim" xlink:href="#kvg:084b8-s5" data-stroke="5" data-duration="0.706721392969"/>
+    <use id="kvg:084b8-s6-anim" xlink:href="#kvg:084b8-s6" data-stroke="6" data-duration="0.952353732053"/>
+    <use id="kvg:084b8-s7-anim" xlink:href="#kvg:084b8-s7" data-stroke="7" data-duration="0.559083055225"/>
+    <use id="kvg:084b8-s8-anim" xlink:href="#kvg:084b8-s8" data-stroke="8" data-duration="0.735298613722"/>
+    <use id="kvg:084b8-s9-anim" xlink:href="#kvg:084b8-s9" data-stroke="9" data-duration="0.824866081075"/>
+    <use id="kvg:084b8-s10-anim" xlink:href="#kvg:084b8-s10" data-stroke="10" data-duration="0.500083746986"/>
+    <use id="kvg:084b8-s11-anim" xlink:href="#kvg:084b8-s11" data-stroke="11" data-duration="0.461662950819"/>
+    <use id="kvg:084b8-s12-anim" xlink:href="#kvg:084b8-s12" data-stroke="12" data-duration="0.490862311747"/>
+    <use id="kvg:084b8-s13-anim" xlink:href="#kvg:084b8-s13" data-stroke="13" data-duration="0.536401939378"/>
   </g>
   <g style="fill:none;stroke:#f00;stroke-width:5.500000;stroke-linecap:round;stroke-linejoin:round;" id="kvg:084b8-brush-Kanimaji">
     <a data-stroke="0"/>

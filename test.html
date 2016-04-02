@@ -64,7 +64,9 @@ function svg_loaded() {
 
 function animate() {
     var svg, cls, stroke, els, selector, factor, duration, new_duration;
-    svg = $(document.getElementById('mysvg').getSVGDocument())
+
+    kill_animation();
+    svg = $(document.getElementById('mysvg').getSVGDocument());
 
     /* cleanup all classes and durations, if necessary */
     svg.find('[data-stroke]')
@@ -94,7 +96,7 @@ function animate() {
     svg.find('svg')[0].offsetWidth;
 
     /* add classes to animating elaments */
-    selector = '[data-stroke="'+$("#stroke").spinner("value")+'"]';
+    selector = '[data-stroke="' + $("#stroke").spinner("value") + '"]';
     els = svg.find(selector).addClass(cls);
 
     /* set custom speed */
@@ -106,8 +108,45 @@ function animate() {
     }
 }
 
+function kill_animation() {
+    if(window.animator_timeout) {
+        clearTimeout(window.animator_timeout);
+        delete window.animator_timeout;
+    }
+}
+
+function animate_strokes() {
+    kill_animation();
+
+    var animator = function(stroke) {
+        var svg, selector, duration, num_strokes, next_stroke;
+        svg = $(document.getElementById('mysvg').getSVGDocument());
+        svg.find('[data-stroke]')
+            .removeClass('animate current brush backward')
+            .css("animation-duration", '');
+
+        /* 
+            hack, trigger reflow to force animation restart, should
+            not be necessary unless animating again the same stroke 
+        */
+        svg.find('svg')[0].offsetWidth;
+
+        selector = '[data-stroke="' + stroke + '"]';
+        duration = svg.find(selector+'[data-duration]').data("duration");
+        svg.find(selector).addClass('animate brush current');
+        num_strokes = svg.find('[data-num-strokes]').data('num-strokes');
+        next_stroke = stroke % num_strokes + 1;
+        window.animator_timeout = setTimeout(
+            function(){ animator(next_stroke); },
+            duration * 1000
+        );
+    }
+    animator(1);
+}
+
 $(function() {
-    $("#backward, #brush, #animate, #set_speed, #draw").button()
+    $("#backward, #brush, #animate, #set_speed,"+
+        " #draw, #animate_strokes, #stop_animation").button()
     $("#stroke").spinner({min: 0})
     $("#speed").slider({min: -100, max: 100, value: 0,
                     disabled: !$('#set_speed').is(":checked") })
@@ -115,20 +154,30 @@ $(function() {
         $("#speed").slider({disabled: !$(this).is(":checked")})
     })
     $("#draw").click(animate)
+    $("#animate_strokes").click(animate_strokes)
+    $("#stop_animation").click(kill_animation)
 })
 </script>
 <style>
 </style>
 </head>
 <body style="text-align: center">
+<table style="margin: 0 auto">
+<tr><td>
 <div style="width: 300; height: 300; text-align: center; margin: 0 auto">
 <object>
    <embed id="mysvg" src="samples/084b8_js_anim.svg"
             onload="javascript:svg_loaded()">
 </object>
 </div>
+</td><td style="font-size: 80%">
 <p>
-    <button id="draw" style="color: red">Draw!</button>
+    <button id="draw" style="color: red">Draw stroke!</button>
+    &nbsp;<label for="stroke" class="ui-widget ui-state-default"
+        style="border:none; background: none;">Stroke:</label>
+    <input id="stroke" name="value" value="1" style="width: 3em"/>
+</p>
+<p>
     <input type="checkbox" id="backward">
     <label for="backward">Backward</label>
     <input type="checkbox" id="brush" checked="1">
@@ -137,15 +186,29 @@ $(function() {
     <label for="animate">Animate</label>
 </p>
 <p>
-    <label for="stroke" class="ui-widget ui-state-default"
-        style="border:none">Stroke:</label>
-    <input id="stroke" name="value" value="1" style="width: 3em"/>
     <span id="speed" style="width: 160; display: inline-block; margin: 0em 0.5em"></span>
     <input type="checkbox" id="set_speed"/>
     <label for="set_speed">Set speed</label>
 </p>
-<div style="text-align: left; margin-left: 2em">
-<pre style='color:#000000;background:#ffffff;'>svg <span style='color:#808030; '>=</span> $<span style='color:#808030; '>(</span>document<span style='color:#808030; '>.</span>getElementById<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>mysvg</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>getSVGDocument<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span>
+<hr>
+<button id="animate_strokes" style="color: red">Animate strokes!</button>
+<button id="stop_animation" style="color: red">Stop animation</button>
+
+</td></tr></table>
+<div style="text-align: left; margin-left: 1em; font-family: Sans; font-size: 120%">
+To activate the animation on the 4th stroke it is sufficient to do (you can test in the Javascript console):
+</div>
+<div style="text-align: left; margin-left: 1em; padding-left: 1em; border-left: 2px solid #888;">
+<pre style='color:#000000;background:#ffffff;'>svg <span style='color:#808030; '>=</span> $<span style='color:#808030; '>(</span>document<span style='color:#808030; '>.</span>getElementById<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>mysvg</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>getSVGDocument<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>[data-stroke="4"]</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>addClass<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>animate brush current</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+</pre>
+</div>
+<div style="text-align: left; margin-left: 1em; font-family: Sans; font-size: 120%">
+The code activated by the "Draw stroke!" button above is just:
+</div>
+<div style="text-align: left; margin-left: 1em; padding-left: 1em; border-left: 2px solid #888;">
+<!-- Generated by https://tohtml.com/ -->
+<pre style='color:#000000;background:#ffffff;'>svg <span style='color:#808030; '>=</span> $<span style='color:#808030; '>(</span>document<span style='color:#808030; '>.</span>getElementById<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>mysvg</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>getSVGDocument<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>);</span>
 
 <span style='color:#696969; '>/* cleanup all classes and durations, if necessary */</span>
 svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</span><span style='color:#800000; '>'</span><span style='color:#0000e6; '>[data-stroke]</span><span style='color:#800000; '>'</span><span style='color:#808030; '>)</span>
