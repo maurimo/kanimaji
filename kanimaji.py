@@ -126,7 +126,11 @@ def create_animation(filename):
     if GENERATE_SVG:
         animated_css = css_header
     if GENERATE_JS_SVG:
-        js_animated_css = css_header
+        js_animated_css = css_header + d("""
+            .backward {
+                animation-direction: reverse !important;
+            }
+            """)
         js_anim_els = []  # collect the ids of animating elements
         js_anim_time = [] # the time set (as default) for each animation
     if GENERATE_GIF:
@@ -143,10 +147,9 @@ def create_animation(filename):
         groupid = g.get('id')
         if re.match( r'^kvg:StrokeNumbers_', groupid ):
             rule = d("""
-            #%s {
-                display: none;
-            }
-            """ % re.sub(r':', '\\\\3a ', groupid))
+                #%s {
+                    display: none;
+                }""" % re.sub(r':', '\\\\3a ', groupid))
             if GENERATE_SVG:
                 animated_css += rule
             if GENERATE_JS_SVG:
@@ -157,11 +160,10 @@ def create_animation(filename):
 
         gidcss = re.sub(r':', '\\\\3a ', groupid)
         rule = d("""
-        #%s {
-            stroke-width: %.01fpx !important;
-            stroke:       %s !important;
-        }
-        """ % (gidcss, STOKE_BORDER_WIDTH, STOKE_BORDER_COLOR))
+            #%s {
+                stroke-width: %.01fpx !important;
+                stroke:       %s !important;
+            }""" % (gidcss, STOKE_BORDER_WIDTH, STOKE_BORDER_COLOR))
         if GENERATE_SVG:
             animated_css += rule
         if GENERATE_JS_SVG:
@@ -289,7 +291,7 @@ def create_animation(filename):
 
                 # and show bg after current element, or if animated
                 js_animated_css += d("""
-                    %s ~ #%s, #%s.anim {
+                    %s ~ #%s, #%s.animate {
                         visibility: visible;
                     }""") % (after_curr, bg_pathidcss, bg_pathidcss)
 
@@ -297,11 +299,11 @@ def create_animation(filename):
                 js_animated_css += d("""
                     @keyframes strike_%s {
                         0%% { stroke-dashoffset: %.03f; }
-                        100%% { stroke-dashoffset: 1; }
+                        100%% { stroke-dashoffset: 0.05; }
                     }""" % (pathname, pathlen))
 
                 js_animated_css += d("""
-                    #%s.anim {
+                    #%s.animate {
                         stroke: %s;
                         stroke-dasharray: %.03f %.03f;
                     }""" % (anim_pathidcss,
@@ -309,22 +311,20 @@ def create_animation(filename):
                             pathlen, pathlen))
                 if SHOW_BRUSH:
                     js_animated_css += d("""
-                        #%s.anim, #%s.anim {
+                        #%s.animate.brush, #%s.animate.brush {
                             stroke-dasharray: 0 %.03f;
                         }""") % (brush_pathidcss, brush_brd_pathidcss, 
                                 pathlen)
 
-                rule_anim = "#%s.anim" % anim_pathidcss
+                rule_anim = "#%s.animate" % anim_pathidcss
                 if SHOW_BRUSH:
-                    rule_anim += ",\n#%s.anim,\n#%s.anim" % (
+                    rule_anim += ",\n#%s.animate.brush,\n#%s.animate.brush" % (
                         brush_pathidcss, brush_brd_pathidcss)
 
                 js_animated_css += d("""
                     %s {
                         visibility: visible;
-                        animation: strike_%s %.03fs %s;
-                        animation-fill-mode: forwards;
-                        animation-iteration-count: 1;
+                        animation: strike_%s %.03fs %s forwards 1;
                     }""") % (rule_anim, pathname, relduration, TIMING_FUNCTION)
 
             if GENERATE_GIF:
@@ -392,7 +392,7 @@ def create_animation(filename):
         style = E.style(animated_css, id="style-Kanimaji")
         doc.getroot().insert(0, style)
         svgfile = filename_noext + '_anim.svg'
-        doc.write(svgfile)
+        doc.write(svgfile, pretty_print=True)
         doc.getroot().remove(style)
         print 'written %s' % svgfile
 
@@ -465,6 +465,8 @@ def create_animation(filename):
             for k in els:
                 els[k].set("data-stroke",str(i+1))
             els["anim"].set("data-duration", str(js_anim_time[i]))
+
+        doc.getroot().set('data-num-strokes', str(len(js_anim_els)))
 
         style = E.style(js_animated_css, id="style-Kanimaji")
         doc.getroot().insert(0, style)
