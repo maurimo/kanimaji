@@ -13,7 +13,7 @@ from settings import *
 
 
 def compute_path_len(path):
-    return parse_path(path).length(error=1e-6)+0.001
+    return parse_path(path).length(error=1e-8)
 
 def shescape(path):
     return "'"+re.sub(r"(?=['\\\\])","\\\\",path)+"'"
@@ -64,6 +64,7 @@ etree.register_namespace("xlink","http://www.w3.org/1999/xlink")
 parser = etree.XMLParser(remove_blank_text=True)
 
 def create_animation(filename):
+    print('processing %s' % filename)
     filename_noext = re.sub(r'\.[^\.]+$','',filename)
     filename_noext_ascii = re.sub(r'\\([\\u])','\\1',
                             json.dumps(filename_noext))[1:-1]
@@ -225,7 +226,7 @@ def create_animation(filename):
             if GENERATE_SVG:
                 # animation stroke progression
                 animated_css += d("""
-                    @keyframes strike_%s {
+                    @keyframes strike-%s {
                         0%% { stroke-dashoffset: %.03f; }
                         %.03f%% { stroke-dashoffset: %.03f; }
                         %.03f%% { stroke-dashoffset: 0; }
@@ -234,7 +235,7 @@ def create_animation(filename):
 
                 # animation visibility
                 animated_css += d("""
-                    @keyframes showhide_%s {
+                    @keyframes showhide-%s {
                         %.03f%% { visibility: hidden; }
                         %.03f%% { stroke: %s; }
                     }""" % (pathname, anim_start, anim_end, STOKE_FILLING_COLOR))
@@ -244,8 +245,8 @@ def create_animation(filename):
                     #%s {
                         stroke-dasharray: %.03f %.03f;
                         stroke-dashoffset: 0;
-                        animation: strike_%s %.03fs %s infinite,
-                            showhide_%s %.03fs step-start infinite;
+                        animation: strike-%s %.03fs %s infinite,
+                            showhide-%s %.03fs step-start infinite;
                     }""" % (anim_pathidcss, pathlen, pathlen, 
                             pathname, animation_time,
                             TIMING_FUNCTION,
@@ -254,7 +255,7 @@ def create_animation(filename):
                 if SHOW_BRUSH:
                     # brush element visibility
                     animated_css += d("""
-                        @keyframes showhide_brush_%s {
+                        @keyframes showhide-brush-%s {
                             %.03f%% { visibility: hidden; }
                             %.03f%% { visibility: visible; }
                             100%% { visibility: hidden; }
@@ -264,8 +265,8 @@ def create_animation(filename):
                     animated_css += d("""
                         #%s, #%s {
                             stroke-dasharray: 0 %.03f;
-                            animation: strike_%s %.03fs %s infinite,
-                                showhide_brush_%s %.03fs step-start infinite;
+                            animation: strike-%s %.03fs %s infinite,
+                                showhide-brush-%s %.03fs step-start infinite;
                         }""" % (brush_pathidcss, brush_brd_pathidcss,
                             pathlen, 
                             pathname, animation_time, TIMING_FUNCTION,
@@ -297,35 +298,35 @@ def create_animation(filename):
 
                 # animation stroke progression
                 js_animated_css += d("""
-                    @keyframes strike_%s {
+                    @keyframes strike-%s {
                         0%% { stroke-dashoffset: %.03f; }
-                        100%% { stroke-dashoffset: 0.05; }
+                        100%% { stroke-dashoffset: 0; }
                     }""" % (pathname, pathlen))
 
                 js_animated_css += d("""
                     #%s.animate {
                         stroke: %s;
                         stroke-dasharray: %.03f %.03f;
+                        visibility: visible;
+                        animation: strike-%s %.03fs %s forwards 1;
                     }""" % (anim_pathidcss,
                             STOKE_FILLING_COLOR,
-                            pathlen, pathlen))
+                            pathlen, pathlen,
+                            pathname, relduration, TIMING_FUNCTION))
                 if SHOW_BRUSH:
+                    js_animated_css += d("""
+                        @keyframes strike-brush-%s {
+                            0%% { stroke-dashoffset: %.03f; }
+                            100%% { stroke-dashoffset: 0.4; }
+                        }""" % (pathname, pathlen))
                     js_animated_css += d("""
                         #%s.animate.brush, #%s.animate.brush {
                             stroke-dasharray: 0 %.03f;
+                            visibility: visible;
+                            animation: strike-brush-%s %.03fs %s forwards 1;
                         }""") % (brush_pathidcss, brush_brd_pathidcss, 
-                                pathlen)
-
-                rule_anim = "#%s.animate" % anim_pathidcss
-                if SHOW_BRUSH:
-                    rule_anim += ",\n#%s.animate.brush,\n#%s.animate.brush" % (
-                        brush_pathidcss, brush_brd_pathidcss)
-
-                js_animated_css += d("""
-                    %s {
-                        visibility: visible;
-                        animation: strike_%s %.03fs %s forwards 1;
-                    }""") % (rule_anim, pathname, relduration, TIMING_FUNCTION)
+                                pathlen, 
+                                pathname, relduration, TIMING_FUNCTION)
 
             if GENERATE_GIF:
                 for k in static_css:
