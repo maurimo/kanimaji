@@ -434,15 +434,33 @@ def create_animation(filename):
                 os.remove(f)
 
         # generate GIF
+        giffile_tmp1 = filename_noext + '_anim_tmp1.gif'
+        giffile_tmp2 = filename_noext + '_anim_tmp2.gif'
         giffile = filename_noext + '_anim.gif'
         escpngframefiles = ' '.join(shescape(f) for f in pngframefiles[0:-1])
-        cmdline = ("convert -alpha set -dispose previous "+ # -deconstruct
-                   "-delay %d %s -delay %d %s -layers optimize %s") % (
+        
+        # -coalesce     Fill out frames completely
+        # -deconstruct  Deconstructs frames, does not work with transparency.
+        #
+        #
+        # convert ${I[@]} -background blue -alpha remove -layers OptimizePlus $O
+        # convert $O \( -clone 0--1 -background none +append -quantize transparent -colors 63 -unique-colors -write mpr:cmap +delete \) -map mpr:cmap ../kanimaji-gh/samples/out.gif
+        # gifsicle -O3 samples/out.gif -o samples/out2.gif
+        #cmdline = ("convert -alpha set -dispose previous "+ # -deconstruct
+                   #"-delay %d %s -delay %d %s -layers optimize %s") % (
+                    #int(GIF_FRAME_DURATION*100),
+                    #escpngframefiles,
+                    #int(last_frame_delay*100),
+                    #shescape(pngframefiles[-1]),
+                    #shescape(giffile))
+        cmdline = ("convert -delay %d %s -delay %d %s "+
+                   "-background '%s' -alpha remove -layers OptimizePlus %s") % (
                     int(GIF_FRAME_DURATION*100),
                     escpngframefiles,
                     int(last_frame_delay*100),
                     shescape(pngframefiles[-1]),
-                    shescape(giffile))
+                    GIF_BACKGROUND_COLOR,
+                    shescape(giffile_tmp1))
         print cmdline
         if os.system(cmdline) != 0:
             exit('Error running external command')
@@ -451,6 +469,27 @@ def create_animation(filename):
             for f in pngframefiles:
                 os.remove(f)
             print 'cleaned up.'
+
+        cmdline = ("convert %s \\( -clone 0--1 -background none "+
+                   "+append -quantize transparent -colors 63 "+
+                   "-unique-colors -write mpr:cmap +delete \\) "+
+                   "-map mpr:cmap %s") % (
+                    shescape(giffile_tmp1),
+                    shescape(giffile_tmp2))
+        print cmdline
+        if os.system(cmdline) != 0:
+            exit('Error running external command')
+        if DELETE_TEMPORARY_FILES:
+            os.remove(giffile_tmp1)
+
+        cmdline = ("gifsicle -O3 %s -o %s") % (
+                    shescape(giffile_tmp2),
+                    shescape(giffile))
+        print cmdline
+        if os.system(cmdline) != 0:
+            exit('Error running external command')
+        if DELETE_TEMPORARY_FILES:
+            os.remove(giffile_tmp2)
         
     if GENERATE_JS_SVG:
     

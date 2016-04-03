@@ -22,10 +22,11 @@ WAIT_AFTER = 1.5
 DELETE_TEMPORARY_FILES = True
 GIF_SIZE               = 150
 GIF_FRAME_DURATION     = 0.04
+GIF_BACKGROUND_COLOR   = '#ddf'
 
-GENERATE_SVG           = True
-GENERATE_JS_SVG        = True
-GENERATE_GIF           = False
+GENERATE_SVG           = False
+GENERATE_JS_SVG        = False
+GENERATE_GIF           = True
 
 # sqrt, ie a stroke 4 times the length is drawn
 # at twice the speed, in twice the time.
@@ -35,7 +36,7 @@ def stroke_length_to_duration(length):
 # global time rescale, let's make animation a bit
 # faster when there are many strokes.
 def time_rescale(interval):
-    return math.pow(3 * interval, 2.0/3)
+    return math.pow(2 * interval, 2.0/3)
 
 # Possibilities are linear, ease, ease-in, ease-in-out, ease-out, see
 #   https://developer.mozilla.org/en-US/docs/Web/CSS/timing-function
