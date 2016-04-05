@@ -14,7 +14,7 @@ This is a small utility for transforming KanjiVG images into animates SVG or GIF
 ![084b8 GIF](http://maurimo.github.io/kanimaji/samples/084b8_anim.gif)
 ![08972 GIF](http://maurimo.github.io/kanimaji/samples/08972_anim.gif)
 
-(these 150x150 GIF are 24k and 30k. with transparent background quite bigger unluckily).
+(these GIFs are 150x150 and have size 24k and 30k. With transparent background the generated image are quite bigger ~220k unluckily).
 
  * Javascript controlled SVG:
 
