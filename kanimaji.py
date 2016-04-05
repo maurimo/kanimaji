@@ -439,27 +439,17 @@ def create_animation(filename):
         giffile = filename_noext + '_anim.gif'
         escpngframefiles = ' '.join(shescape(f) for f in pngframefiles[0:-1])
         
-        # -coalesce     Fill out frames completely
-        # -deconstruct  Deconstructs frames, does not work with transparency.
-        #
-        #
-        # convert ${I[@]} -background blue -alpha remove -layers OptimizePlus $O
-        # convert $O \( -clone 0--1 -background none +append -quantize transparent -colors 63 -unique-colors -write mpr:cmap +delete \) -map mpr:cmap ../kanimaji-gh/samples/out.gif
-        # gifsicle -O3 samples/out.gif -o samples/out2.gif
-        #cmdline = ("convert -alpha set -dispose previous "+ # -deconstruct
-                   #"-delay %d %s -delay %d %s -layers optimize %s") % (
-                    #int(GIF_FRAME_DURATION*100),
-                    #escpngframefiles,
-                    #int(last_frame_delay*100),
-                    #shescape(pngframefiles[-1]),
-                    #shescape(giffile))
+        if GIF_BACKGROUND_COLOR == 'transparent':
+            bgopts = '-dispose previous'
+        else:
+            bgopts = "-background '%s' -alpha remove" % GIF_BACKGROUND_COLOR
         cmdline = ("convert -delay %d %s -delay %d %s "+
-                   "-background '%s' -alpha remove -layers OptimizePlus %s") % (
+                    "%s -layers OptimizePlus %s") % (
                     int(GIF_FRAME_DURATION*100),
                     escpngframefiles,
                     int(last_frame_delay*100),
                     shescape(pngframefiles[-1]),
-                    GIF_BACKGROUND_COLOR,
+                    bgopts,
                     shescape(giffile_tmp1))
         print cmdline
         if os.system(cmdline) != 0:
@@ -514,6 +504,15 @@ def create_animation(filename):
         doc.write(svgfile, pretty_print=True)
         doc.getroot().remove(style)
         print 'written %s' % svgfile
+
+if GENERATE_GIF and GIF_BACKGROUND_COLOR == 'transparent' and not GIF_ALLOW_TRANSPARENT:
+    exit(d("""
+    ******************************************************************
+    WARNING: "transparent" not allowed by default as gif background,
+      because generated files are 10x bigger. If you are really sure
+      set GIF_ALLOW_TRANSPARENT to True in settings.py and rerun.
+    ******************************************************************
+    """))
 
 args = deepcopy(sys.argv)
 del args[0]

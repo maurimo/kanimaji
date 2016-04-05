@@ -10,22 +10,27 @@ STOKE_FILLING_COLOR  = "#f00"
 STOKE_FILLED_COLOR   = "#000"
 STOKE_FILLED_WIDTH   = 3.1
 
+# brush settings
 SHOW_BRUSH              = True
 SHOW_BRUSH_FRONT_BORDER = True
-BRUSH_COLOR        = "#f00"
-BRUSH_WIDTH        = 5.5
-BRUSH_BORDER_COLOR = "#666"
-BRUSH_BORDER_WIDTH = 7
+BRUSH_COLOR             = "#f00"
+BRUSH_WIDTH             = 5.5
+BRUSH_BORDER_COLOR      = "#666"
+BRUSH_BORDER_WIDTH      = 7
 
 WAIT_AFTER = 1.5
 
-DELETE_TEMPORARY_FILES = True
+# gif settings
+DELETE_TEMPORARY_FILES = False
 GIF_SIZE               = 150
 GIF_FRAME_DURATION     = 0.04
 GIF_BACKGROUND_COLOR   = '#ddf'
+# set to true to allow transparent background, much bigger file!
+GIF_ALLOW_TRANSPARENT  = False
 
-GENERATE_SVG           = False
-GENERATE_JS_SVG        = False
+# edit here to decide what will be generated
+GENERATE_SVG           = True
+GENERATE_JS_SVG        = True
 GENERATE_GIF           = True
 
 # sqrt, ie a stroke 4 times the length is drawn
