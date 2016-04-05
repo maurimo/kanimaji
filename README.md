@@ -2,9 +2,9 @@
 
 ## Generation of animations ##
 
-This is a small utility for transforming KanjiVG images into animates SVG or GIF files, or SVGs that can easily animated via Javascript (with no library dependency!).
+This is a small utility for transforming KanjiVG images into animated SVG or GIF files, or SVGs that can easily animated via Javascript (with no library dependency!).
 
- * SVG samples:
+ * SVG samples (animated via CSS, no SMIL/<animate> element):
 
 ![084b8 SVG](http://maurimo.github.io/kanimaji/samples/084b8_anim.svg)
 ![08972 SVG](http://maurimo.github.io/kanimaji/samples/08972_anim.svg)
