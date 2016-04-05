@@ -12,43 +12,6 @@
 <link rel="stylesheet" href="jquery-ui-1.11.4/jquery-ui.min.css">
 <script language="JavaScript" type="text/javascript">
 
-// function run() {
-//     var svg = $(document.getElementById('mysvg').getSVGDocument())
-// }
-// 
-// function svg_loaded_old() {
-//     console.log("hello!")
-//     n = 3;
-//     svg = $(document.getElementById('mysvg').getSVGDocument())
-// 
-//     num_strokes = svg.find('[data-num-strokes]').data('num-strokes')
-//     console.log(num_strokes)
-//     
-//     /* cleanup */
-//     svg.find('.animate, .current, .brush, .backward')
-//         .removeClass('animate current brush backward')
-// 
-//     selector = '[data-stroke="'+n+'"]'
-// 
-//     duration = svg.find(selector+'[data-duration]').data("duration")
-//     svg.find(selector)
-//         .addClass('animate current')
-//         .css("animation-duration", (duration*3) + "s")
-// 
-//     // animate all and 
-//     svg.find('[data-stroke]')
-//         .addClass('animate backward')
-//         .css("animation-duration", '1s')
-//     for(var i=1;i<=3;i++)
-//     svg.find('[data-stroke="'+i+'"]')
-//         .addClass('brush')
-//         .removeClass('backward')
-//         .css("animation-duration", '1s')
-//         
-//     // reset duration, if necessary
-//     //svg.find('[data-stroke]').css("animation-duration", '')
-// }
-
 function svg_loaded() {
     var svg, root, num_strokes;
     svg = $(document.getElementById('mysvg').getSVGDocument())
@@ -177,6 +140,8 @@ $(function() {
 </style>
 </head>
 <body style="text-align: center">
+<h1 style="font-family: Sans; margin-bottom: 0.3em">Kanimaji</h1>
+Visit the <a href="https://github.com/maurimo/kanimaji">project page on GitHub</a>.
 <table style="margin: 0 auto">
 <tr><td>
 <div style="width: 300; height: 300; text-align: center; margin: 0 auto">
@@ -220,6 +185,7 @@ svg<span style='color:#808030; '>.</span>find<span style='color:#808030; '>(</sp
 </pre>
 </div>
 <div style="text-align: left; margin-left: 1em; font-family: Sans; font-size: 120%">
+(We included jQuery for convenience, but it is not necessary).<br>
 The code activating the animation of the n-th stroke using the settings is just:
 </div>
 <div style="text-align: left; margin-left: 1em; padding-left: 1em; border-left: 2px solid #888;">
