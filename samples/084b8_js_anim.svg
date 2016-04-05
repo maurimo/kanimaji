@@ -45,7 +45,7 @@
     stroke: #f00;
     stroke-dasharray: 65.003 65.003;
     visibility: visible;
-    animation: strike-084b8-s1 1.000s ease-in-out forwards 1;
+    animation: strike-084b8-s1 1.310s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s1 {
     0% { stroke-dashoffset: 65.003; }
@@ -54,7 +54,7 @@
 #kvg\3a 084b8-s1-brush.animate.brush, #kvg\3a 084b8-s1-brush-brd.animate.brush {
     stroke-dasharray: 0 65.003;
     visibility: visible;
-    animation: strike-brush-084b8-s1 1.000s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s1 1.310s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s2 */
@@ -75,7 +75,7 @@
     stroke: #f00;
     stroke-dasharray: 19.432 19.432;
     visibility: visible;
-    animation: strike-084b8-s2 0.547s ease-in-out forwards 1;
+    animation: strike-084b8-s2 0.716s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s2 {
     0% { stroke-dashoffset: 19.432; }
@@ -84,7 +84,7 @@
 #kvg\3a 084b8-s2-brush.animate.brush, #kvg\3a 084b8-s2-brush-brd.animate.brush {
     stroke-dasharray: 0 19.432;
     visibility: visible;
-    animation: strike-brush-084b8-s2 0.547s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s2 0.716s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s3 */
@@ -105,7 +105,7 @@
     stroke: #f00;
     stroke-dasharray: 19.436 19.436;
     visibility: visible;
-    animation: strike-084b8-s3 0.547s ease-in-out forwards 1;
+    animation: strike-084b8-s3 0.717s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s3 {
     0% { stroke-dashoffset: 19.436; }
@@ -114,7 +114,7 @@
 #kvg\3a 084b8-s3-brush.animate.brush, #kvg\3a 084b8-s3-brush-brd.animate.brush {
     stroke-dasharray: 0 19.436;
     visibility: visible;
-    animation: strike-brush-084b8-s3 0.547s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s3 0.717s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s4 */
@@ -135,7 +135,7 @@
     stroke: #f00;
     stroke-dasharray: 48.585 48.585;
     visibility: visible;
-    animation: strike-084b8-s4 0.865s ease-in-out forwards 1;
+    animation: strike-084b8-s4 1.133s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s4 {
     0% { stroke-dashoffset: 48.585; }
@@ -144,7 +144,7 @@
 #kvg\3a 084b8-s4-brush.animate.brush, #kvg\3a 084b8-s4-brush-brd.animate.brush {
     stroke-dasharray: 0 48.585;
     visibility: visible;
-    animation: strike-brush-084b8-s4 0.865s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s4 1.133s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s5 */
@@ -165,7 +165,7 @@
     stroke: #f00;
     stroke-dasharray: 32.464 32.464;
     visibility: visible;
-    animation: strike-084b8-s5 0.707s ease-in-out forwards 1;
+    animation: strike-084b8-s5 0.926s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s5 {
     0% { stroke-dashoffset: 32.464; }
@@ -174,7 +174,7 @@
 #kvg\3a 084b8-s5-brush.animate.brush, #kvg\3a 084b8-s5-brush-brd.animate.brush {
     stroke-dasharray: 0 32.464;
     visibility: visible;
-    animation: strike-brush-084b8-s5 0.707s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s5 0.926s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s6 */
@@ -195,7 +195,7 @@
     stroke: #f00;
     stroke-dasharray: 58.952 58.952;
     visibility: visible;
-    animation: strike-084b8-s6 0.952s ease-in-out forwards 1;
+    animation: strike-084b8-s6 1.248s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s6 {
     0% { stroke-dashoffset: 58.952; }
@@ -204,7 +204,7 @@
 #kvg\3a 084b8-s6-brush.animate.brush, #kvg\3a 084b8-s6-brush-brd.animate.brush {
     stroke-dasharray: 0 58.952;
     visibility: visible;
-    animation: strike-brush-084b8-s6 0.952s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s6 1.248s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s7 */
@@ -225,7 +225,7 @@
     stroke: #f00;
     stroke-dasharray: 20.317 20.317;
     visibility: visible;
-    animation: strike-084b8-s7 0.559s ease-in-out forwards 1;
+    animation: strike-084b8-s7 0.733s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s7 {
     0% { stroke-dashoffset: 20.317; }
@@ -234,7 +234,7 @@
 #kvg\3a 084b8-s7-brush.animate.brush, #kvg\3a 084b8-s7-brush-brd.animate.brush {
     stroke-dasharray: 0 20.317;
     visibility: visible;
-    animation: strike-brush-084b8-s7 0.559s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s7 0.733s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s8 */
@@ -255,7 +255,7 @@
     stroke: #f00;
     stroke-dasharray: 35.143 35.143;
     visibility: visible;
-    animation: strike-084b8-s8 0.735s ease-in-out forwards 1;
+    animation: strike-084b8-s8 0.964s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s8 {
     0% { stroke-dashoffset: 35.143; }
@@ -264,7 +264,7 @@
 #kvg\3a 084b8-s8-brush.animate.brush, #kvg\3a 084b8-s8-brush-brd.animate.brush {
     stroke-dasharray: 0 35.143;
     visibility: visible;
-    animation: strike-brush-084b8-s8 0.735s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s8 0.964s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s9 */
@@ -285,7 +285,7 @@
     stroke: #f00;
     stroke-dasharray: 44.225 44.225;
     visibility: visible;
-    animation: strike-084b8-s9 0.825s ease-in-out forwards 1;
+    animation: strike-084b8-s9 1.081s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s9 {
     0% { stroke-dashoffset: 44.225; }
@@ -294,7 +294,7 @@
 #kvg\3a 084b8-s9-brush.animate.brush, #kvg\3a 084b8-s9-brush-brd.animate.brush {
     stroke-dasharray: 0 44.225;
     visibility: visible;
-    animation: strike-brush-084b8-s9 0.825s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s9 1.081s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s10 */
@@ -315,7 +315,7 @@
     stroke: #f00;
     stroke-dasharray: 16.255 16.255;
     visibility: visible;
-    animation: strike-084b8-s10 0.500s ease-in-out forwards 1;
+    animation: strike-084b8-s10 0.655s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s10 {
     0% { stroke-dashoffset: 16.255; }
@@ -324,7 +324,7 @@
 #kvg\3a 084b8-s10-brush.animate.brush, #kvg\3a 084b8-s10-brush-brd.animate.brush {
     stroke-dasharray: 0 16.255;
     visibility: visible;
-    animation: strike-brush-084b8-s10 0.500s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s10 0.655s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s11 */
@@ -345,7 +345,7 @@
     stroke: #f00;
     stroke-dasharray: 13.853 13.853;
     visibility: visible;
-    animation: strike-084b8-s11 0.462s ease-in-out forwards 1;
+    animation: strike-084b8-s11 0.605s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s11 {
     0% { stroke-dashoffset: 13.853; }
@@ -354,7 +354,7 @@
 #kvg\3a 084b8-s11-brush.animate.brush, #kvg\3a 084b8-s11-brush-brd.animate.brush {
     stroke-dasharray: 0 13.853;
     visibility: visible;
-    animation: strike-brush-084b8-s11 0.462s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s11 0.605s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s12 */
@@ -375,7 +375,7 @@
     stroke: #f00;
     stroke-dasharray: 15.661 15.661;
     visibility: visible;
-    animation: strike-084b8-s12 0.491s ease-in-out forwards 1;
+    animation: strike-084b8-s12 0.643s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s12 {
     0% { stroke-dashoffset: 15.661; }
@@ -384,7 +384,7 @@
 #kvg\3a 084b8-s12-brush.animate.brush, #kvg\3a 084b8-s12-brush-brd.animate.brush {
     stroke-dasharray: 0 15.661;
     visibility: visible;
-    animation: strike-brush-084b8-s12 0.491s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s12 0.643s ease-in-out forwards 1;
 }
 
 /* stroke kvg:084b8-s13 */
@@ -405,7 +405,7 @@
     stroke: #f00;
     stroke-dasharray: 18.702 18.702;
     visibility: visible;
-    animation: strike-084b8-s13 0.536s ease-in-out forwards 1;
+    animation: strike-084b8-s13 0.703s ease-in-out forwards 1;
 }
 @keyframes strike-brush-084b8-s13 {
     0% { stroke-dashoffset: 18.702; }
@@ -414,7 +414,7 @@
 #kvg\3a 084b8-s13-brush.animate.brush, #kvg\3a 084b8-s13-brush-brd.animate.brush {
     stroke-dasharray: 0 18.702;
     visibility: visible;
-    animation: strike-brush-084b8-s13 0.536s ease-in-out forwards 1;
+    animation: strike-brush-084b8-s13 0.703s ease-in-out forwards 1;
 }
 #kvg\3a StrokeNumbers_084b8 {
     display: none;
@@ -503,19 +503,19 @@
   </g>
   <g style="fill:none;stroke:#000;stroke-width:3.100000;stroke-linecap:round;stroke-linejoin:round;" id="kvg:084b8-anim-Kanimaji">
     <a data-stroke="0"/>
-    <use id="kvg:084b8-s1-anim" xlink:href="#kvg:084b8-s1" data-stroke="1" data-duration="1.00002843983"/>
-    <use id="kvg:084b8-s2-anim" xlink:href="#kvg:084b8-s2" data-stroke="2" data-duration="0.54677150139"/>
-    <use id="kvg:084b8-s3-anim" xlink:href="#kvg:084b8-s3" data-stroke="3" data-duration="0.546821266177"/>
-    <use id="kvg:084b8-s4-anim" xlink:href="#kvg:084b8-s4" data-stroke="4" data-duration="0.864566079865"/>
-    <use id="kvg:084b8-s5-anim" xlink:href="#kvg:084b8-s5" data-stroke="5" data-duration="0.706721392969"/>
-    <use id="kvg:084b8-s6-anim" xlink:href="#kvg:084b8-s6" data-stroke="6" data-duration="0.952353732053"/>
-    <use id="kvg:084b8-s7-anim" xlink:href="#kvg:084b8-s7" data-stroke="7" data-duration="0.559083055225"/>
-    <use id="kvg:084b8-s8-anim" xlink:href="#kvg:084b8-s8" data-stroke="8" data-duration="0.735298613722"/>
-    <use id="kvg:084b8-s9-anim" xlink:href="#kvg:084b8-s9" data-stroke="9" data-duration="0.824866081075"/>
-    <use id="kvg:084b8-s10-anim" xlink:href="#kvg:084b8-s10" data-stroke="10" data-duration="0.500083746986"/>
-    <use id="kvg:084b8-s11-anim" xlink:href="#kvg:084b8-s11" data-stroke="11" data-duration="0.461662950819"/>
-    <use id="kvg:084b8-s12-anim" xlink:href="#kvg:084b8-s12" data-stroke="12" data-duration="0.490862311747"/>
-    <use id="kvg:084b8-s13-anim" xlink:href="#kvg:084b8-s13" data-stroke="13" data-duration="0.536401939378"/>
+    <use id="kvg:084b8-s1-anim" xlink:href="#kvg:084b8-s1" data-stroke="1" data-duration="1.31040796382"/>
+    <use id="kvg:084b8-s2-anim" xlink:href="#kvg:084b8-s2" data-stroke="2" data-duration="0.716473353434"/>
+    <use id="kvg:084b8-s3-anim" xlink:href="#kvg:084b8-s3" data-stroke="3" data-duration="0.716538563752"/>
+    <use id="kvg:084b8-s4-anim" xlink:href="#kvg:084b8-s4" data-stroke="4" data-duration="1.13290205677"/>
+    <use id="kvg:084b8-s5-anim" xlink:href="#kvg:084b8-s5" data-stroke="5" data-duration="0.926067004364"/>
+    <use id="kvg:084b8-s6-anim" xlink:href="#kvg:084b8-s6" data-stroke="6" data-duration="1.24793642376"/>
+    <use id="kvg:084b8-s7-anim" xlink:href="#kvg:084b8-s7" data-stroke="7" data-duration="0.732606052814"/>
+    <use id="kvg:084b8-s8-anim" xlink:href="#kvg:084b8-s8" data-stroke="8" data-duration="0.963513757043"/>
+    <use id="kvg:084b8-s9-anim" xlink:href="#kvg:084b8-s9" data-stroke="9" data-duration="1.08088034168"/>
+    <use id="kvg:084b8-s10-anim" xlink:href="#kvg:084b8-s10" data-stroke="10" data-duration="0.655295088149"/>
+    <use id="kvg:084b8-s11-anim" xlink:href="#kvg:084b8-s11" data-stroke="11" data-duration="0.604949602692"/>
+    <use id="kvg:084b8-s12-anim" xlink:href="#kvg:084b8-s12" data-stroke="12" data-duration="0.643211589626"/>
+    <use id="kvg:084b8-s13-anim" xlink:href="#kvg:084b8-s13" data-stroke="13" data-duration="0.702885383231"/>
   </g>
   <g style="fill:none;stroke:#f00;stroke-width:5.500000;stroke-linecap:round;stroke-linejoin:round;" id="kvg:084b8-brush-Kanimaji">
     <a data-stroke="0"/>

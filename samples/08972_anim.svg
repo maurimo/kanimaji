@@ -22,583 +22,581 @@
     stroke-width: 4.5px !important;
     stroke:       #666 !important;
 }
-
-@keyframes strike_08972-s1 {
-    0% { stroke-dashoffset: 6.277; }
-    0.000% { stroke-dashoffset: 6.277; }
-    2.071% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s1 {
+    0% { stroke-dashoffset: 6.276; }
+    0.000% { stroke-dashoffset: 6.276; }
+    2.001% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s1 {
+@keyframes showhide-08972-s1 {
     0.000% { visibility: hidden; }
-    2.071% { stroke: #f00; }
+    2.001% { stroke: #f00; }
 }
 #kvg\3a 08972-s1-anim {
-    stroke-dasharray: 6.277 6.277;
+    stroke-dasharray: 6.276 6.276;
     stroke-dashoffset: 0;
-    animation: strike_08972-s1 13.238s ease-in-out infinite,
-        showhide_08972-s1 13.238s step-start infinite;
+    animation: strike-08972-s1 10.458s ease-in-out infinite,
+        showhide-08972-s1 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s1 {
+@keyframes showhide-brush-08972-s1 {
     0.000% { visibility: hidden; }
-    2.071% { visibility: visible; }
+    2.001% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s1-brush, #kvg\3a 08972-s1-brush-brd {
-    stroke-dasharray: 0 6.277;
-    animation: strike_08972-s1 13.238s ease-in-out infinite,
-        showhide_brush_08972-s1 13.238s step-start infinite;
+    stroke-dasharray: 0 6.276;
+    animation: strike-08972-s1 10.458s ease-in-out infinite,
+        showhide-brush-08972-s1 10.458s step-start infinite;
 }
-@keyframes strike_08972-s2 {
-    0% { stroke-dashoffset: 28.320; }
-    2.071% { stroke-dashoffset: 28.320; }
-    6.471% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s2 {
+    0% { stroke-dashoffset: 28.319; }
+    2.001% { stroke-dashoffset: 28.319; }
+    6.251% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s2 {
-    2.071% { visibility: hidden; }
-    6.471% { stroke: #f00; }
+@keyframes showhide-08972-s2 {
+    2.001% { visibility: hidden; }
+    6.251% { stroke: #f00; }
 }
 #kvg\3a 08972-s2-anim {
-    stroke-dasharray: 28.320 28.320;
+    stroke-dasharray: 28.319 28.319;
     stroke-dashoffset: 0;
-    animation: strike_08972-s2 13.238s ease-in-out infinite,
-        showhide_08972-s2 13.238s step-start infinite;
+    animation: strike-08972-s2 10.458s ease-in-out infinite,
+        showhide-08972-s2 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s2 {
-    2.071% { visibility: hidden; }
-    6.471% { visibility: visible; }
+@keyframes showhide-brush-08972-s2 {
+    2.001% { visibility: hidden; }
+    6.251% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s2-brush, #kvg\3a 08972-s2-brush-brd {
-    stroke-dasharray: 0 28.320;
-    animation: strike_08972-s2 13.238s ease-in-out infinite,
-        showhide_brush_08972-s2 13.238s step-start infinite;
+    stroke-dasharray: 0 28.319;
+    animation: strike-08972-s2 10.458s ease-in-out infinite,
+        showhide-brush-08972-s2 10.458s step-start infinite;
 }
-@keyframes strike_08972-s3 {
-    0% { stroke-dashoffset: 6.757; }
-    6.471% { stroke-dashoffset: 6.757; }
-    8.620% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s3 {
+    0% { stroke-dashoffset: 6.756; }
+    6.251% { stroke-dashoffset: 6.756; }
+    8.327% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s3 {
-    6.471% { visibility: hidden; }
-    8.620% { stroke: #f00; }
+@keyframes showhide-08972-s3 {
+    6.251% { visibility: hidden; }
+    8.327% { stroke: #f00; }
 }
 #kvg\3a 08972-s3-anim {
-    stroke-dasharray: 6.757 6.757;
+    stroke-dasharray: 6.756 6.756;
     stroke-dashoffset: 0;
-    animation: strike_08972-s3 13.238s ease-in-out infinite,
-        showhide_08972-s3 13.238s step-start infinite;
+    animation: strike-08972-s3 10.458s ease-in-out infinite,
+        showhide-08972-s3 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s3 {
-    6.471% { visibility: hidden; }
-    8.620% { visibility: visible; }
+@keyframes showhide-brush-08972-s3 {
+    6.251% { visibility: hidden; }
+    8.327% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s3-brush, #kvg\3a 08972-s3-brush-brd {
-    stroke-dasharray: 0 6.757;
-    animation: strike_08972-s3 13.238s ease-in-out infinite,
-        showhide_brush_08972-s3 13.238s step-start infinite;
+    stroke-dasharray: 0 6.756;
+    animation: strike-08972-s3 10.458s ease-in-out infinite,
+        showhide-brush-08972-s3 10.458s step-start infinite;
 }
-@keyframes strike_08972-s4 {
-    0% { stroke-dashoffset: 7.943; }
-    8.620% { stroke-dashoffset: 7.943; }
-    10.951% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s4 {
+    0% { stroke-dashoffset: 7.942; }
+    8.327% { stroke-dashoffset: 7.942; }
+    10.578% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s4 {
-    8.620% { visibility: hidden; }
-    10.951% { stroke: #f00; }
+@keyframes showhide-08972-s4 {
+    8.327% { visibility: hidden; }
+    10.578% { stroke: #f00; }
 }
 #kvg\3a 08972-s4-anim {
-    stroke-dasharray: 7.943 7.943;
+    stroke-dasharray: 7.942 7.942;
     stroke-dashoffset: 0;
-    animation: strike_08972-s4 13.238s ease-in-out infinite,
-        showhide_08972-s4 13.238s step-start infinite;
+    animation: strike-08972-s4 10.458s ease-in-out infinite,
+        showhide-08972-s4 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s4 {
-    8.620% { visibility: hidden; }
-    10.951% { visibility: visible; }
+@keyframes showhide-brush-08972-s4 {
+    8.327% { visibility: hidden; }
+    10.578% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s4-brush, #kvg\3a 08972-s4-brush-brd {
-    stroke-dasharray: 0 7.943;
-    animation: strike_08972-s4 13.238s ease-in-out infinite,
-        showhide_brush_08972-s4 13.238s step-start infinite;
+    stroke-dasharray: 0 7.942;
+    animation: strike-08972-s4 10.458s ease-in-out infinite,
+        showhide-brush-08972-s4 10.458s step-start infinite;
 }
-@keyframes strike_08972-s5 {
-    0% { stroke-dashoffset: 38.929; }
-    10.951% { stroke-dashoffset: 38.929; }
-    16.109% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s5 {
+    0% { stroke-dashoffset: 38.928; }
+    10.578% { stroke-dashoffset: 38.928; }
+    15.562% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s5 {
-    10.951% { visibility: hidden; }
-    16.109% { stroke: #f00; }
+@keyframes showhide-08972-s5 {
+    10.578% { visibility: hidden; }
+    15.562% { stroke: #f00; }
 }
 #kvg\3a 08972-s5-anim {
-    stroke-dasharray: 38.929 38.929;
+    stroke-dasharray: 38.928 38.928;
     stroke-dashoffset: 0;
-    animation: strike_08972-s5 13.238s ease-in-out infinite,
-        showhide_08972-s5 13.238s step-start infinite;
+    animation: strike-08972-s5 10.458s ease-in-out infinite,
+        showhide-08972-s5 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s5 {
-    10.951% { visibility: hidden; }
-    16.109% { visibility: visible; }
+@keyframes showhide-brush-08972-s5 {
+    10.578% { visibility: hidden; }
+    15.562% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s5-brush, #kvg\3a 08972-s5-brush-brd {
-    stroke-dasharray: 0 38.929;
-    animation: strike_08972-s5 13.238s ease-in-out infinite,
-        showhide_brush_08972-s5 13.238s step-start infinite;
+    stroke-dasharray: 0 38.928;
+    animation: strike-08972-s5 10.458s ease-in-out infinite,
+        showhide-brush-08972-s5 10.458s step-start infinite;
 }
-@keyframes strike_08972-s6 {
-    0% { stroke-dashoffset: 24.740; }
-    16.109% { stroke-dashoffset: 24.740; }
-    20.221% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s6 {
+    0% { stroke-dashoffset: 24.739; }
+    15.562% { stroke-dashoffset: 24.739; }
+    19.534% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s6 {
-    16.109% { visibility: hidden; }
-    20.221% { stroke: #f00; }
+@keyframes showhide-08972-s6 {
+    15.562% { visibility: hidden; }
+    19.534% { stroke: #f00; }
 }
 #kvg\3a 08972-s6-anim {
-    stroke-dasharray: 24.740 24.740;
+    stroke-dasharray: 24.739 24.739;
     stroke-dashoffset: 0;
-    animation: strike_08972-s6 13.238s ease-in-out infinite,
-        showhide_08972-s6 13.238s step-start infinite;
+    animation: strike-08972-s6 10.458s ease-in-out infinite,
+        showhide-08972-s6 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s6 {
-    16.109% { visibility: hidden; }
-    20.221% { visibility: visible; }
+@keyframes showhide-brush-08972-s6 {
+    15.562% { visibility: hidden; }
+    19.534% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s6-brush, #kvg\3a 08972-s6-brush-brd {
-    stroke-dasharray: 0 24.740;
-    animation: strike_08972-s6 13.238s ease-in-out infinite,
-        showhide_brush_08972-s6 13.238s step-start infinite;
+    stroke-dasharray: 0 24.739;
+    animation: strike-08972-s6 10.458s ease-in-out infinite,
+        showhide-brush-08972-s6 10.458s step-start infinite;
 }
-@keyframes strike_08972-s7 {
-    0% { stroke-dashoffset: 47.552; }
-    20.221% { stroke-dashoffset: 47.552; }
-    25.923% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s7 {
+    0% { stroke-dashoffset: 47.551; }
+    19.534% { stroke-dashoffset: 47.551; }
+    25.042% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s7 {
-    20.221% { visibility: hidden; }
-    25.923% { stroke: #f00; }
+@keyframes showhide-08972-s7 {
+    19.534% { visibility: hidden; }
+    25.042% { stroke: #f00; }
 }
 #kvg\3a 08972-s7-anim {
-    stroke-dasharray: 47.552 47.552;
+    stroke-dasharray: 47.551 47.551;
     stroke-dashoffset: 0;
-    animation: strike_08972-s7 13.238s ease-in-out infinite,
-        showhide_08972-s7 13.238s step-start infinite;
+    animation: strike-08972-s7 10.458s ease-in-out infinite,
+        showhide-08972-s7 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s7 {
-    20.221% { visibility: hidden; }
-    25.923% { visibility: visible; }
+@keyframes showhide-brush-08972-s7 {
+    19.534% { visibility: hidden; }
+    25.042% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s7-brush, #kvg\3a 08972-s7-brush-brd {
-    stroke-dasharray: 0 47.552;
-    animation: strike_08972-s7 13.238s ease-in-out infinite,
-        showhide_brush_08972-s7 13.238s step-start infinite;
+    stroke-dasharray: 0 47.551;
+    animation: strike-08972-s7 10.458s ease-in-out infinite,
+        showhide-brush-08972-s7 10.458s step-start infinite;
 }
-@keyframes strike_08972-s8 {
-    0% { stroke-dashoffset: 15.294; }
-    25.923% { stroke-dashoffset: 15.294; }
-    29.156% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s8 {
+    0% { stroke-dashoffset: 15.293; }
+    25.042% { stroke-dashoffset: 15.293; }
+    28.165% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s8 {
-    25.923% { visibility: hidden; }
-    29.156% { stroke: #f00; }
+@keyframes showhide-08972-s8 {
+    25.042% { visibility: hidden; }
+    28.165% { stroke: #f00; }
 }
 #kvg\3a 08972-s8-anim {
-    stroke-dasharray: 15.294 15.294;
+    stroke-dasharray: 15.293 15.293;
     stroke-dashoffset: 0;
-    animation: strike_08972-s8 13.238s ease-in-out infinite,
-        showhide_08972-s8 13.238s step-start infinite;
+    animation: strike-08972-s8 10.458s ease-in-out infinite,
+        showhide-08972-s8 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s8 {
-    25.923% { visibility: hidden; }
-    29.156% { visibility: visible; }
+@keyframes showhide-brush-08972-s8 {
+    25.042% { visibility: hidden; }
+    28.165% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s8-brush, #kvg\3a 08972-s8-brush-brd {
-    stroke-dasharray: 0 15.294;
-    animation: strike_08972-s8 13.238s ease-in-out infinite,
-        showhide_brush_08972-s8 13.238s step-start infinite;
+    stroke-dasharray: 0 15.293;
+    animation: strike-08972-s8 10.458s ease-in-out infinite,
+        showhide-brush-08972-s8 10.458s step-start infinite;
 }
-@keyframes strike_08972-s9 {
-    0% { stroke-dashoffset: 15.491; }
-    29.156% { stroke-dashoffset: 15.491; }
-    32.410% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s9 {
+    0% { stroke-dashoffset: 15.490; }
+    28.165% { stroke-dashoffset: 15.490; }
+    31.309% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s9 {
-    29.156% { visibility: hidden; }
-    32.410% { stroke: #f00; }
+@keyframes showhide-08972-s9 {
+    28.165% { visibility: hidden; }
+    31.309% { stroke: #f00; }
 }
 #kvg\3a 08972-s9-anim {
-    stroke-dasharray: 15.491 15.491;
+    stroke-dasharray: 15.490 15.490;
     stroke-dashoffset: 0;
-    animation: strike_08972-s9 13.238s ease-in-out infinite,
-        showhide_08972-s9 13.238s step-start infinite;
+    animation: strike-08972-s9 10.458s ease-in-out infinite,
+        showhide-08972-s9 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s9 {
-    29.156% { visibility: hidden; }
-    32.410% { visibility: visible; }
+@keyframes showhide-brush-08972-s9 {
+    28.165% { visibility: hidden; }
+    31.309% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s9-brush, #kvg\3a 08972-s9-brush-brd {
-    stroke-dasharray: 0 15.491;
-    animation: strike_08972-s9 13.238s ease-in-out infinite,
-        showhide_brush_08972-s9 13.238s step-start infinite;
+    stroke-dasharray: 0 15.490;
+    animation: strike-08972-s9 10.458s ease-in-out infinite,
+        showhide-brush-08972-s9 10.458s step-start infinite;
 }
-@keyframes strike_08972-s10 {
-    0% { stroke-dashoffset: 20.031; }
-    32.410% { stroke-dashoffset: 20.031; }
-    36.111% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s10 {
+    0% { stroke-dashoffset: 20.030; }
+    31.309% { stroke-dashoffset: 20.030; }
+    34.884% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s10 {
-    32.410% { visibility: hidden; }
-    36.111% { stroke: #f00; }
+@keyframes showhide-08972-s10 {
+    31.309% { visibility: hidden; }
+    34.884% { stroke: #f00; }
 }
 #kvg\3a 08972-s10-anim {
-    stroke-dasharray: 20.031 20.031;
+    stroke-dasharray: 20.030 20.030;
     stroke-dashoffset: 0;
-    animation: strike_08972-s10 13.238s ease-in-out infinite,
-        showhide_08972-s10 13.238s step-start infinite;
+    animation: strike-08972-s10 10.458s ease-in-out infinite,
+        showhide-08972-s10 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s10 {
-    32.410% { visibility: hidden; }
-    36.111% { visibility: visible; }
+@keyframes showhide-brush-08972-s10 {
+    31.309% { visibility: hidden; }
+    34.884% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s10-brush, #kvg\3a 08972-s10-brush-brd {
-    stroke-dasharray: 0 20.031;
-    animation: strike_08972-s10 13.238s ease-in-out infinite,
-        showhide_brush_08972-s10 13.238s step-start infinite;
+    stroke-dasharray: 0 20.030;
+    animation: strike-08972-s10 10.458s ease-in-out infinite,
+        showhide-brush-08972-s10 10.458s step-start infinite;
 }
-@keyframes strike_08972-s11 {
-    0% { stroke-dashoffset: 43.486; }
-    36.111% { stroke-dashoffset: 43.486; }
-    41.563% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s11 {
+    0% { stroke-dashoffset: 43.485; }
+    34.884% { stroke-dashoffset: 43.485; }
+    40.150% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s11 {
-    36.111% { visibility: hidden; }
-    41.563% { stroke: #f00; }
+@keyframes showhide-08972-s11 {
+    34.884% { visibility: hidden; }
+    40.150% { stroke: #f00; }
 }
 #kvg\3a 08972-s11-anim {
-    stroke-dasharray: 43.486 43.486;
+    stroke-dasharray: 43.485 43.485;
     stroke-dashoffset: 0;
-    animation: strike_08972-s11 13.238s ease-in-out infinite,
-        showhide_08972-s11 13.238s step-start infinite;
+    animation: strike-08972-s11 10.458s ease-in-out infinite,
+        showhide-08972-s11 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s11 {
-    36.111% { visibility: hidden; }
-    41.563% { visibility: visible; }
+@keyframes showhide-brush-08972-s11 {
+    34.884% { visibility: hidden; }
+    40.150% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s11-brush, #kvg\3a 08972-s11-brush-brd {
-    stroke-dasharray: 0 43.486;
-    animation: strike_08972-s11 13.238s ease-in-out infinite,
-        showhide_brush_08972-s11 13.238s step-start infinite;
+    stroke-dasharray: 0 43.485;
+    animation: strike-08972-s11 10.458s ease-in-out infinite,
+        showhide-brush-08972-s11 10.458s step-start infinite;
 }
-@keyframes strike_08972-s12 {
-    0% { stroke-dashoffset: 20.840; }
-    41.563% { stroke-dashoffset: 20.840; }
-    45.337% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s12 {
+    0% { stroke-dashoffset: 20.839; }
+    40.150% { stroke-dashoffset: 20.839; }
+    43.797% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s12 {
-    41.563% { visibility: hidden; }
-    45.337% { stroke: #f00; }
+@keyframes showhide-08972-s12 {
+    40.150% { visibility: hidden; }
+    43.797% { stroke: #f00; }
 }
 #kvg\3a 08972-s12-anim {
-    stroke-dasharray: 20.840 20.840;
+    stroke-dasharray: 20.839 20.839;
     stroke-dashoffset: 0;
-    animation: strike_08972-s12 13.238s ease-in-out infinite,
-        showhide_08972-s12 13.238s step-start infinite;
+    animation: strike-08972-s12 10.458s ease-in-out infinite,
+        showhide-08972-s12 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s12 {
-    41.563% { visibility: hidden; }
-    45.337% { visibility: visible; }
+@keyframes showhide-brush-08972-s12 {
+    40.150% { visibility: hidden; }
+    43.797% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s12-brush, #kvg\3a 08972-s12-brush-brd {
-    stroke-dasharray: 0 20.840;
-    animation: strike_08972-s12 13.238s ease-in-out infinite,
-        showhide_brush_08972-s12 13.238s step-start infinite;
+    stroke-dasharray: 0 20.839;
+    animation: strike-08972-s12 10.458s ease-in-out infinite,
+        showhide-brush-08972-s12 10.458s step-start infinite;
 }
-@keyframes strike_08972-s13 {
-    0% { stroke-dashoffset: 55.089; }
-    45.337% { stroke-dashoffset: 55.089; }
-    51.473% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s13 {
+    0% { stroke-dashoffset: 55.088; }
+    43.797% { stroke-dashoffset: 55.088; }
+    49.725% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s13 {
-    45.337% { visibility: hidden; }
-    51.473% { stroke: #f00; }
+@keyframes showhide-08972-s13 {
+    43.797% { visibility: hidden; }
+    49.725% { stroke: #f00; }
 }
 #kvg\3a 08972-s13-anim {
-    stroke-dasharray: 55.089 55.089;
+    stroke-dasharray: 55.088 55.088;
     stroke-dashoffset: 0;
-    animation: strike_08972-s13 13.238s ease-in-out infinite,
-        showhide_08972-s13 13.238s step-start infinite;
+    animation: strike-08972-s13 10.458s ease-in-out infinite,
+        showhide-08972-s13 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s13 {
-    45.337% { visibility: hidden; }
-    51.473% { visibility: visible; }
+@keyframes showhide-brush-08972-s13 {
+    43.797% { visibility: hidden; }
+    49.725% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s13-brush, #kvg\3a 08972-s13-brush-brd {
-    stroke-dasharray: 0 55.089;
-    animation: strike_08972-s13 13.238s ease-in-out infinite,
-        showhide_brush_08972-s13 13.238s step-start infinite;
+    stroke-dasharray: 0 55.088;
+    animation: strike-08972-s13 10.458s ease-in-out infinite,
+        showhide-brush-08972-s13 10.458s step-start infinite;
 }
-@keyframes strike_08972-s14 {
-    0% { stroke-dashoffset: 17.090; }
-    51.473% { stroke-dashoffset: 17.090; }
-    54.891% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s14 {
+    0% { stroke-dashoffset: 17.089; }
+    49.725% { stroke-dashoffset: 17.089; }
+    53.026% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s14 {
-    51.473% { visibility: hidden; }
-    54.891% { stroke: #f00; }
+@keyframes showhide-08972-s14 {
+    49.725% { visibility: hidden; }
+    53.026% { stroke: #f00; }
 }
 #kvg\3a 08972-s14-anim {
-    stroke-dasharray: 17.090 17.090;
+    stroke-dasharray: 17.089 17.089;
     stroke-dashoffset: 0;
-    animation: strike_08972-s14 13.238s ease-in-out infinite,
-        showhide_08972-s14 13.238s step-start infinite;
+    animation: strike-08972-s14 10.458s ease-in-out infinite,
+        showhide-08972-s14 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s14 {
-    51.473% { visibility: hidden; }
-    54.891% { visibility: visible; }
+@keyframes showhide-brush-08972-s14 {
+    49.725% { visibility: hidden; }
+    53.026% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s14-brush, #kvg\3a 08972-s14-brush-brd {
-    stroke-dasharray: 0 17.090;
-    animation: strike_08972-s14 13.238s ease-in-out infinite,
-        showhide_brush_08972-s14 13.238s step-start infinite;
+    stroke-dasharray: 0 17.089;
+    animation: strike-08972-s14 10.458s ease-in-out infinite,
+        showhide-brush-08972-s14 10.458s step-start infinite;
 }
-@keyframes strike_08972-s15 {
-    0% { stroke-dashoffset: 17.199; }
-    54.891% { stroke-dashoffset: 17.199; }
-    58.320% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s15 {
+    0% { stroke-dashoffset: 17.198; }
+    53.026% { stroke-dashoffset: 17.198; }
+    56.339% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s15 {
-    54.891% { visibility: hidden; }
-    58.320% { stroke: #f00; }
+@keyframes showhide-08972-s15 {
+    53.026% { visibility: hidden; }
+    56.339% { stroke: #f00; }
 }
 #kvg\3a 08972-s15-anim {
-    stroke-dasharray: 17.199 17.199;
+    stroke-dasharray: 17.198 17.198;
     stroke-dashoffset: 0;
-    animation: strike_08972-s15 13.238s ease-in-out infinite,
-        showhide_08972-s15 13.238s step-start infinite;
+    animation: strike-08972-s15 10.458s ease-in-out infinite,
+        showhide-08972-s15 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s15 {
-    54.891% { visibility: hidden; }
-    58.320% { visibility: visible; }
+@keyframes showhide-brush-08972-s15 {
+    53.026% { visibility: hidden; }
+    56.339% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s15-brush, #kvg\3a 08972-s15-brush-brd {
-    stroke-dasharray: 0 17.199;
-    animation: strike_08972-s15 13.238s ease-in-out infinite,
-        showhide_brush_08972-s15 13.238s step-start infinite;
+    stroke-dasharray: 0 17.198;
+    animation: strike-08972-s15 10.458s ease-in-out infinite,
+        showhide-brush-08972-s15 10.458s step-start infinite;
 }
-@keyframes strike_08972-s16 {
-    0% { stroke-dashoffset: 18.628; }
-    58.320% { stroke-dashoffset: 18.628; }
-    61.889% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s16 {
+    0% { stroke-dashoffset: 18.627; }
+    56.339% { stroke-dashoffset: 18.627; }
+    59.786% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s16 {
-    58.320% { visibility: hidden; }
-    61.889% { stroke: #f00; }
+@keyframes showhide-08972-s16 {
+    56.339% { visibility: hidden; }
+    59.786% { stroke: #f00; }
 }
 #kvg\3a 08972-s16-anim {
-    stroke-dasharray: 18.628 18.628;
+    stroke-dasharray: 18.627 18.627;
     stroke-dashoffset: 0;
-    animation: strike_08972-s16 13.238s ease-in-out infinite,
-        showhide_08972-s16 13.238s step-start infinite;
+    animation: strike-08972-s16 10.458s ease-in-out infinite,
+        showhide-08972-s16 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s16 {
-    58.320% { visibility: hidden; }
-    61.889% { visibility: visible; }
+@keyframes showhide-brush-08972-s16 {
+    56.339% { visibility: hidden; }
+    59.786% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s16-brush, #kvg\3a 08972-s16-brush-brd {
-    stroke-dasharray: 0 18.628;
-    animation: strike_08972-s16 13.238s ease-in-out infinite,
-        showhide_brush_08972-s16 13.238s step-start infinite;
+    stroke-dasharray: 0 18.627;
+    animation: strike-08972-s16 10.458s ease-in-out infinite,
+        showhide-brush-08972-s16 10.458s step-start infinite;
 }
-@keyframes strike_08972-s17 {
-    0% { stroke-dashoffset: 10.630; }
-    61.889% { stroke-dashoffset: 10.630; }
-    64.584% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s17 {
+    0% { stroke-dashoffset: 10.629; }
+    59.786% { stroke-dashoffset: 10.629; }
+    62.390% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s17 {
-    61.889% { visibility: hidden; }
-    64.584% { stroke: #f00; }
+@keyframes showhide-08972-s17 {
+    59.786% { visibility: hidden; }
+    62.390% { stroke: #f00; }
 }
 #kvg\3a 08972-s17-anim {
-    stroke-dasharray: 10.630 10.630;
+    stroke-dasharray: 10.629 10.629;
     stroke-dashoffset: 0;
-    animation: strike_08972-s17 13.238s ease-in-out infinite,
-        showhide_08972-s17 13.238s step-start infinite;
+    animation: strike-08972-s17 10.458s ease-in-out infinite,
+        showhide-08972-s17 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s17 {
-    61.889% { visibility: hidden; }
-    64.584% { visibility: visible; }
+@keyframes showhide-brush-08972-s17 {
+    59.786% { visibility: hidden; }
+    62.390% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s17-brush, #kvg\3a 08972-s17-brush-brd {
-    stroke-dasharray: 0 10.630;
-    animation: strike_08972-s17 13.238s ease-in-out infinite,
-        showhide_brush_08972-s17 13.238s step-start infinite;
+    stroke-dasharray: 0 10.629;
+    animation: strike-08972-s17 10.458s ease-in-out infinite,
+        showhide-brush-08972-s17 10.458s step-start infinite;
 }
-@keyframes strike_08972-s18 {
-    0% { stroke-dashoffset: 61.096; }
-    64.584% { stroke-dashoffset: 61.096; }
-    71.047% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s18 {
+    0% { stroke-dashoffset: 61.095; }
+    62.390% { stroke-dashoffset: 61.095; }
+    68.633% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s18 {
-    64.584% { visibility: hidden; }
-    71.047% { stroke: #f00; }
+@keyframes showhide-08972-s18 {
+    62.390% { visibility: hidden; }
+    68.633% { stroke: #f00; }
 }
 #kvg\3a 08972-s18-anim {
-    stroke-dasharray: 61.096 61.096;
+    stroke-dasharray: 61.095 61.095;
     stroke-dashoffset: 0;
-    animation: strike_08972-s18 13.238s ease-in-out infinite,
-        showhide_08972-s18 13.238s step-start infinite;
+    animation: strike-08972-s18 10.458s ease-in-out infinite,
+        showhide-08972-s18 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s18 {
-    64.584% { visibility: hidden; }
-    71.047% { visibility: visible; }
+@keyframes showhide-brush-08972-s18 {
+    62.390% { visibility: hidden; }
+    68.633% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s18-brush, #kvg\3a 08972-s18-brush-brd {
-    stroke-dasharray: 0 61.096;
-    animation: strike_08972-s18 13.238s ease-in-out infinite,
-        showhide_brush_08972-s18 13.238s step-start infinite;
+    stroke-dasharray: 0 61.095;
+    animation: strike-08972-s18 10.458s ease-in-out infinite,
+        showhide-brush-08972-s18 10.458s step-start infinite;
 }
-@keyframes strike_08972-s19 {
-    0% { stroke-dashoffset: 34.310; }
-    71.047% { stroke-dashoffset: 34.310; }
-    75.889% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s19 {
+    0% { stroke-dashoffset: 34.309; }
+    68.633% { stroke-dashoffset: 34.309; }
+    73.311% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s19 {
-    71.047% { visibility: hidden; }
-    75.889% { stroke: #f00; }
+@keyframes showhide-08972-s19 {
+    68.633% { visibility: hidden; }
+    73.311% { stroke: #f00; }
 }
 #kvg\3a 08972-s19-anim {
-    stroke-dasharray: 34.310 34.310;
+    stroke-dasharray: 34.309 34.309;
     stroke-dashoffset: 0;
-    animation: strike_08972-s19 13.238s ease-in-out infinite,
-        showhide_08972-s19 13.238s step-start infinite;
+    animation: strike-08972-s19 10.458s ease-in-out infinite,
+        showhide-08972-s19 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s19 {
-    71.047% { visibility: hidden; }
-    75.889% { visibility: visible; }
+@keyframes showhide-brush-08972-s19 {
+    68.633% { visibility: hidden; }
+    73.311% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s19-brush, #kvg\3a 08972-s19-brush-brd {
-    stroke-dasharray: 0 34.310;
-    animation: strike_08972-s19 13.238s ease-in-out infinite,
-        showhide_brush_08972-s19 13.238s step-start infinite;
+    stroke-dasharray: 0 34.309;
+    animation: strike-08972-s19 10.458s ease-in-out infinite,
+        showhide-brush-08972-s19 10.458s step-start infinite;
 }
-@keyframes strike_08972-s20 {
-    0% { stroke-dashoffset: 33.858; }
-    75.889% { stroke-dashoffset: 33.858; }
-    80.700% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s20 {
+    0% { stroke-dashoffset: 33.857; }
+    73.311% { stroke-dashoffset: 33.857; }
+    77.959% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s20 {
-    75.889% { visibility: hidden; }
-    80.700% { stroke: #f00; }
+@keyframes showhide-08972-s20 {
+    73.311% { visibility: hidden; }
+    77.959% { stroke: #f00; }
 }
 #kvg\3a 08972-s20-anim {
-    stroke-dasharray: 33.858 33.858;
+    stroke-dasharray: 33.857 33.857;
     stroke-dashoffset: 0;
-    animation: strike_08972-s20 13.238s ease-in-out infinite,
-        showhide_08972-s20 13.238s step-start infinite;
+    animation: strike-08972-s20 10.458s ease-in-out infinite,
+        showhide-08972-s20 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s20 {
-    75.889% { visibility: hidden; }
-    80.700% { visibility: visible; }
+@keyframes showhide-brush-08972-s20 {
+    73.311% { visibility: hidden; }
+    77.959% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s20-brush, #kvg\3a 08972-s20-brush-brd {
-    stroke-dasharray: 0 33.858;
-    animation: strike_08972-s20 13.238s ease-in-out infinite,
-        showhide_brush_08972-s20 13.238s step-start infinite;
+    stroke-dasharray: 0 33.857;
+    animation: strike-08972-s20 10.458s ease-in-out infinite,
+        showhide-brush-08972-s20 10.458s step-start infinite;
 }
-@keyframes strike_08972-s21 {
-    0% { stroke-dashoffset: 11.977; }
-    80.700% { stroke-dashoffset: 11.977; }
-    83.562% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s21 {
+    0% { stroke-dashoffset: 11.976; }
+    77.959% { stroke-dashoffset: 11.976; }
+    80.723% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s21 {
-    80.700% { visibility: hidden; }
-    83.562% { stroke: #f00; }
+@keyframes showhide-08972-s21 {
+    77.959% { visibility: hidden; }
+    80.723% { stroke: #f00; }
 }
 #kvg\3a 08972-s21-anim {
-    stroke-dasharray: 11.977 11.977;
+    stroke-dasharray: 11.976 11.976;
     stroke-dashoffset: 0;
-    animation: strike_08972-s21 13.238s ease-in-out infinite,
-        showhide_08972-s21 13.238s step-start infinite;
+    animation: strike-08972-s21 10.458s ease-in-out infinite,
+        showhide-08972-s21 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s21 {
-    80.700% { visibility: hidden; }
-    83.562% { visibility: visible; }
+@keyframes showhide-brush-08972-s21 {
+    77.959% { visibility: hidden; }
+    80.723% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s21-brush, #kvg\3a 08972-s21-brush-brd {
-    stroke-dasharray: 0 11.977;
-    animation: strike_08972-s21 13.238s ease-in-out infinite,
-        showhide_brush_08972-s21 13.238s step-start infinite;
+    stroke-dasharray: 0 11.976;
+    animation: strike-08972-s21 10.458s ease-in-out infinite,
+        showhide-brush-08972-s21 10.458s step-start infinite;
 }
-@keyframes strike_08972-s22 {
-    0% { stroke-dashoffset: 38.166; }
-    83.562% { stroke-dashoffset: 38.166; }
-    88.669% { stroke-dashoffset: 0; }
+@keyframes strike-08972-s22 {
+    0% { stroke-dashoffset: 38.165; }
+    80.723% { stroke-dashoffset: 38.165; }
+    85.657% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: 0; }
 }
-@keyframes showhide_08972-s22 {
-    83.562% { visibility: hidden; }
-    88.669% { stroke: #f00; }
+@keyframes showhide-08972-s22 {
+    80.723% { visibility: hidden; }
+    85.657% { stroke: #f00; }
 }
 #kvg\3a 08972-s22-anim {
-    stroke-dasharray: 38.166 38.166;
+    stroke-dasharray: 38.165 38.165;
     stroke-dashoffset: 0;
-    animation: strike_08972-s22 13.238s ease-in-out infinite,
-        showhide_08972-s22 13.238s step-start infinite;
+    animation: strike-08972-s22 10.458s ease-in-out infinite,
+        showhide-08972-s22 10.458s step-start infinite;
 }
-@keyframes showhide_brush_08972-s22 {
-    83.562% { visibility: hidden; }
-    88.669% { visibility: visible; }
+@keyframes showhide-brush-08972-s22 {
+    80.723% { visibility: hidden; }
+    85.657% { visibility: visible; }
     100% { visibility: hidden; }
 }
 #kvg\3a 08972-s22-brush, #kvg\3a 08972-s22-brush-brd {
-    stroke-dasharray: 0 38.166;
-    animation: strike_08972-s22 13.238s ease-in-out infinite,
-        showhide_brush_08972-s22 13.238s step-start infinite;
+    stroke-dasharray: 0 38.165;
+    animation: strike-08972-s22 10.458s ease-in-out infinite,
+        showhide-brush-08972-s22 10.458s step-start infinite;
 }
 #kvg\3a StrokeNumbers_08972 {
     display: none;
-}
-</style>
+}</style>
   <g xmlns:kvg="http://kanjivg.tagaini.net" id="kvg:StrokePaths_08972" style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;">
     <g id="kvg:08972" kvg:element="&#35186;">
       <g id="kvg:08972-g1" kvg:element="&#40845;" kvg:position="top" kvg:radical="nelson" kvg:phon="&#40845;">
