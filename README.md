@@ -45,5 +45,6 @@ Just edit the settings.py file, all settings are explained there. In this file y
 
 ## License ##
 
-You are free to do what you want with this program, please credit my work you use it.
+This software is formally released under MIT/BSD (at your option).
+You are free to do what you want with this program, please credit my work if you use it.
 If you find it useful and feel like, you may give a donation on my github page!
